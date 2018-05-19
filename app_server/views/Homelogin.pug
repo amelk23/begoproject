@@ -414,7 +414,9 @@ html
             th Start Date
             th Action
 
-          tr(ng-repeat="project in projects")
+        each project in -projects
+          console.log(project.name)
+          tr
             td= project.name
             td= project.field
             td= project.location
