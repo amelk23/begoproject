@@ -389,7 +389,7 @@ html
           br
           .clearfix
             button.cancelbtn(type='button', onclick="document.getElementById('newproject').style.display='none'") Cancel
-            button.signupbtn(type='submit') Create
+            button.signupbtn(type='submit',onclick='/projlist') Create
     // Project list section
     .project-list
       // New Project button
@@ -405,7 +405,7 @@ html
       input#searchhome(type='text', onkeyup='searchmenu(0)', style='border:1px solid #28B78D;background-color:white;', placeholder=' Search Project...', title='Type in Project Name')
       // Project list table
       #project-table
-        table.list-table(onload='/projlist')
+        table.list-table
           tr
             th Project Name
             th Project Field
