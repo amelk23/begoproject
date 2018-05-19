@@ -1,0 +1,387 @@
+doctype html
+
+html
+  head
+    title BEGO - Preference
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='icon', href='logo/2.png')
+    // Importing external layout from layout.css file
+    link(rel='stylesheet', type='text/css', href='layout.css')
+    // New project Form layout
+    link(rel='stylesheet', type='text/css', href='form-layout.css')
+    link(rel='stylesheet', type='text/css', href='bego.css')
+    // Import Javascript codes
+    script(src='script.js')
+    script(src='lastModified.js')
+    // CSS style for div edit and its' button i.e. edit button
+    style.
+      .edit{
+      background-color: rgba(36, 55, 67, 0.2);
+      border-radius: 10px;
+      background-size:cover;
+      width: 80%;
+      border: none;
+      padding: 40px;
+      margin:auto;
+      margin-top:100px;
+      margin-bottom:40px;
+      }
+      .edit-list{
+      outline: none;
+      margin:auto;
+      background-color: rgba(255,255,255,0.5);
+      padding:20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      }
+      .edit-icon{
+      position:static;
+      margin:20px;
+      float:right;
+      cursor:pointer;
+      }
+      .edit-icon:hover{
+      opacity:0.5;
+      }
+  body.preference(onload='lastModifiedDate()')
+  block content
+    // Side navigation
+    #mySidenav.sidenav
+      a.closebtn(href='#', onclick='closeNav()') ×
+      a(href='Homelogin') Home
+      a(href='Findproject') Find Projects
+      a(href='Editprofile') Edit Profile
+      a(href='Preference') Your Preference
+      a(href='home', onclick='confirmlogout()') Logout
+    // Header section
+    header
+      a(href='Homelogin')
+        img#logo(src='logo/2.png', alt='Bego Logo')
+      nav
+        a.normalbtn(style='width:70px', onclick='openNav()') ☰ 
+    // Edit preference section
+    .edit
+      h1 Edit Preference
+      p
+        | Here you can edit your preferences at anytime! Adding or deleting your preferences
+        | (such as interests, preferred work locations) will affect our project recommendation, as it is
+        | based on your preferences!
+      hr
+      // Edit Interest
+      .edit-list
+        select(style='margin-top:15px; height:60px; float:right', size='9', multiple='', required='')
+          option(value='advertising') Advertising
+          option(value='aerospace') Aerospace
+          option(value='analytics') Analytics
+          option(value='artificialIntelligence') Artificial Intelligence
+          option(value='automotive') Automotive
+          option(value='bigData') Big Data
+          option(value='businessIntelligence') Business Intelligence
+          option(value='cleanTech') Clean Tech
+          option(value='cloudComputing') Cloud Computing
+          option(value='consulting') Consulting
+          option(value='consumerInternet') Consumer Internet
+          option(value='cryptocurrency') Cryptocurrency
+          option(value='dailyDeals') Daily Deals
+          option(value='developerTools') Developer Tools
+          option(value='eCommerce') E-commerce
+          option(value='education') Education
+          option(value='enterpriseSoftware') Enterprise Software
+          option(value='finance') Finance
+          option(value='games') Games
+          option(value='hardware') Hardware
+          option(value='healthCare') Health Care
+          option(value='internetOfThings') Internet of Things
+          option(value='lifeScience') Life Science
+          option(value='machineLearning') Machine Learning
+          option(value='manufacturing') Manufacturing
+          option(value='marketing') Marketing
+          option(value='marketPlace') Marketplace
+          option(value='media') Media
+          option(value='mobile') Mobile
+          option(value='networking') Networking
+          option(value='realEstate') Real Estate
+          option(value='retail') Retail
+          option(value='robotics') Robotics
+          option(value='saas') SAAS
+          option(value='security') Security
+          option(value='smartDevices') Smart Devices
+          option(value='socialNetwork') Social Network
+          option(value='software') Software
+          option(value='storage') Storage
+          option(value='telecommunication') Telecommunications
+          option(value='travel') Travel
+          option(value='virtualReality') Virtual Reality
+          option(value='voiceTechnology') Voice Technology
+          option(value='wearables') Wearables
+        p
+          b
+            span(style='font-size:larger') Interest
+          br
+          span(style='opacity:0.5')
+            small Your Interest: Sport, Programming
+      // Edit Location
+      .edit-list
+        select(style='margin-top:15px;float:right')
+          option(value='', selected='', disabled='') Location
+          option(value='AF') Afghanistan
+          option(value='AL') Albania
+          option(value='DZ') Algeria
+          option(value='AS') American Samoa
+          option(value='AD') Andorra
+          option(value='AG') Angola
+          option(value='AI') Anguilla
+          option(value='AG') Antigua & Barbuda
+          option(value='AR') Argentina
+          option(value='AA') Armenia
+          option(value='AW') Aruba
+          option(value='AU') Australia
+          option(value='AT') Austria
+          option(value='AZ') Azerbaijan
+          option(value='BS') Bahamas
+          option(value='BH') Bahrain
+          option(value='BD') Bangladesh
+          option(value='BB') Barbados
+          option(value='BY') Belarus
+          option(value='BE') Belgium
+          option(value='BZ') Belize
+          option(value='BJ') Benin
+          option(value='BM') Bermuda
+          option(value='BT') Bhutan
+          option(value='BO') Bolivia
+          option(value='BL') Bonaire
+          option(value='BA') Bosnia & Herzegovina
+          option(value='BW') Botswana
+          option(value='BR') Brazil
+          option(value='BC') British Indian Ocean Ter
+          option(value='BN') Brunei
+          option(value='BG') Bulgaria
+          option(value='BF') Burkina Faso
+          option(value='BI') Burundi
+          option(value='KH') Cambodia
+          option(value='CM') Cameroon
+          option(value='CA') Canada
+          option(value='IC') Canary Islands
+          option(value='CV') Cape Verde
+          option(value='KY') Cayman Islands
+          option(value='CF') Central African Republic
+          option(value='TD') Chad
+          option(value='CD') Channel Islands
+          option(value='CL') Chile
+          option(value='CN') China
+          option(value='CI') Christmas Island
+          option(value='CS') Cocos Island
+          option(value='CO') Colombia
+          option(value='CC') Comoros
+          option(value='CG') Congo
+          option(value='CK') Cook Islands
+          option(value='CR') Costa Rica
+          option(value='CT') Cote D'Ivoire
+          option(value='HR') Croatia
+          option(value='CU') Cuba
+          option(value='CB') Curacao
+          option(value='CY') Cyprus
+          option(value='CZ') Czech Republic
+          option(value='DK') Denmark
+          option(value='DJ') Djibouti
+          option(value='DM') Dominica
+          option(value='DO') Dominican Republic
+          option(value='TM') East Timor
+          option(value='EC') Ecuador
+          option(value='EG') Egypt
+          option(value='SV') El Salvador
+          option(value='GQ') Equatorial Guinea
+          option(value='ER') Eritrea
+          option(value='EE') Estonia
+          option(value='ET') Ethiopia
+          option(value='FA') Falkland Islands
+          option(value='FO') Faroe Islands
+          option(value='FJ') Fiji
+          option(value='FI') Finland
+          option(value='FR') France
+          option(value='GF') French Guiana
+          option(value='PF') French Polynesia
+          option(value='FS') French Southern Ter
+          option(value='GA') Gabon
+          option(value='GM') Gambia
+          option(value='GE') Georgia
+          option(value='DE') Germany
+          option(value='GH') Ghana
+          option(value='GI') Gibraltar
+          option(value='GB') Great Britain
+          option(value='GR') Greece
+          option(value='GL') Greenland
+          option(value='GD') Grenada
+          option(value='GP') Guadeloupe
+          option(value='GU') Guam
+          option(value='GT') Guatemala
+          option(value='GN') Guinea
+          option(value='GY') Guyana
+          option(value='HT') Haiti
+          option(value='HW') Hawaii
+          option(value='HN') Honduras
+          option(value='HK') Hong Kong
+          option(value='HU') Hungary
+          option(value='IS') Iceland
+          option(value='IN') India
+          option(value='ID') Indonesia
+          option(value='IA') Iran
+          option(value='IQ') Iraq
+          option(value='IR') Ireland
+          option(value='IM') Isle of Man
+          option(value='IL') Israel
+          option(value='IT') Italy
+          option(value='JM') Jamaica
+          option(value='JP') Japan
+          option(value='JO') Jordan
+          option(value='KZ') Kazakhstan
+          option(value='KE') Kenya
+          option(value='KI') Kiribati
+          option(value='NK') Korea North
+          option(value='KS') Korea South
+          option(value='KW') Kuwait
+          option(value='KG') Kyrgyzstan
+          option(value='LA') Laos
+          option(value='LV') Latvia
+          option(value='LB') Lebanon
+          option(value='LS') Lesotho
+          option(value='LR') Liberia
+          option(value='LY') Libya
+          option(value='LI') Liechtenstein
+          option(value='LT') Lithuania
+          option(value='LU') Luxembourg
+          option(value='MO') Macau
+          option(value='MK') Macedonia
+          option(value='MG') Madagascar
+          option(value='MY') Malaysia
+          option(value='MW') Malawi
+          option(value='MV') Maldives
+          option(value='ML') Mali
+          option(value='MT') Malta
+          option(value='MH') Marshall Islands
+          option(value='MQ') Martinique
+          option(value='MR') Mauritania
+          option(value='MU') Mauritius
+          option(value='ME') Mayotte
+          option(value='MX') Mexico
+          option(value='MI') Midway Islands
+          option(value='MD') Moldova
+          option(value='MC') Monaco
+          option(value='MN') Mongolia
+          option(value='MS') Montserrat
+          option(value='MA') Morocco
+          option(value='MZ') Mozambique
+          option(value='MM') Myanmar
+          option(value='NA') Nambia
+          option(value='NU') Nauru
+          option(value='NP') Nepal
+          option(value='AN') Netherland Antilles
+          option(value='NL') Netherlands (Holland, Europe)
+          option(value='NV') Nevis
+          option(value='NC') New Caledonia
+          option(value='NZ') New Zealand
+          option(value='NI') Nicaragua
+          option(value='NE') Niger
+          option(value='NG') Nigeria
+          option(value='NW') Niue
+          option(value='NF') Norfolk Island
+          option(value='NO') Norway
+          option(value='OM') Oman
+          option(value='PK') Pakistan
+          option(value='PW') Palau Island
+          option(value='PS') Palestine
+          option(value='PA') Panama
+          option(value='PG') Papua New Guinea
+          option(value='PY') Paraguay
+          option(value='PE') Peru
+          option(value='PH') Philippines
+          option(value='PO') Pitcairn Island
+          option(value='PL') Poland
+          option(value='PT') Portugal
+          option(value='PR') Puerto Rico
+          option(value='QA') Qatar
+          option(value='ME') Republic of Montenegro
+          option(value='RS') Republic of Serbia
+          option(value='RE') Reunion
+          option(value='RO') Romania
+          option(value='RU') Russia
+          option(value='RW') Rwanda
+          option(value='NT') St Barthelemy
+          option(value='EU') St Eustatius
+          option(value='HE') St Helena
+          option(value='KN') St Kitts-Nevis
+          option(value='LC') St Lucia
+          option(value='MB') St Maarten
+          option(value='PM') St Pierre & Miquelon
+          option(value='VC') St Vincent & Grenadines
+          option(value='SP') Saipan
+          option(value='SO') Samoa
+          option(value='AS') Samoa American
+          option(value='SM') San Marino
+          option(value='ST') Sao Tome & Principe
+          option(value='SA') Saudi Arabia
+          option(value='SN') Senegal
+          option(value='RS') Serbia
+          option(value='SC') Seychelles
+          option(value='SL') Sierra Leone
+          option(value='SG') Singapore
+          option(value='SK') Slovakia
+          option(value='SI') Slovenia
+          option(value='SB') Solomon Islands
+          option(value='OI') Somalia
+          option(value='ZA') South Africa
+          option(value='ES') Spain
+          option(value='LK') Sri Lanka
+          option(value='SD') Sudan
+          option(value='SR') Suriname
+          option(value='SZ') Swaziland
+          option(value='SE') Sweden
+          option(value='CH') Switzerland
+          option(value='SY') Syria
+          option(value='TA') Tahiti
+          option(value='TW') Taiwan
+          option(value='TJ') Tajikistan
+          option(value='TZ') Tanzania
+          option(value='TH') Thailand
+          option(value='TG') Togo
+          option(value='TK') Tokelau
+          option(value='TO') Tonga
+          option(value='TT') Trinidad & Tobago
+          option(value='TN') Tunisia
+          option(value='TR') Turkey
+          option(value='TU') Turkmenistan
+          option(value='TC') Turks & Caicos Is
+          option(value='TV') Tuvalu
+          option(value='UG') Uganda
+          option(value='UA') Ukraine
+          option(value='AE') United Arab Emirates
+          option(value='GB') United Kingdom
+          option(value='US') United States of America
+          option(value='UY') Uruguay
+          option(value='UZ') Uzbekistan
+          option(value='VU') Vanuatu
+          option(value='VS') Vatican City State
+          option(value='VE') Venezuela
+          option(value='VN') Vietnam
+          option(value='VB') Virgin Islands (Brit)
+          option(value='VA') Virgin Islands (USA)
+          option(value='WK') Wake Island
+          option(value='WF') Wallis & Futana Is
+          option(value='YE') Yemen
+          option(value='ZR') Zaire
+          option(value='ZM') Zambia
+          option(value='ZW') Zimbabwe
+        p
+          b
+            span(style='font-size:larger') Location
+          br
+          span(style='opacity:0.5')
+            small Current Location: Western Australia
+      // Update button
+      div
+        button(onclick='confirmupdate()') Update
+    // Footer area
+    footer
+      p Copyright 2018 Bego. All Rights Reserved.
+      p#lastMod

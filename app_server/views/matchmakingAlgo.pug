@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Matchmaking Algorithm
+    link(rel='stylesheet', type='text/css', href='bego.css')
+    script(src='lastModified.js')
+  body.matchMaking(onload='lastModifiedDate()')
+  block content
+    .logo
+      img(src='logo/2.png', alt='logo')
+    button#sidenavBtn
+      img#sidenavImg(src='icon/baricon.png', alt='sidenav logo')
+    #sidenav
+      button#closesidenav ×
+      #navoption
+        a(href='home') Home
+        a(href='aboutus') About Us
+        a(href='teamMember') Team Member
+        a(href='references') References
+    .matchTab
+      #matchIntro.tabcontent
+        h2 Matchmaking Algorithm
+        h5 You provide the information, we do the work
+        p
+          | Member profile cards are visible to administrator
+          | member suggestion only if both field interest and location
+          | are matched.
+      #matchLocation.tabcontent
+        h2 Location
+        h6
+          | During registration, all users are required to enter their country
+          | location and we use this information to find match from the same country
+          | as you. Therefore, you do not need to worry about time zone differences and language barrier.
+      #matchInterest.tabcontent
+        h2 Field Interest
+        h6
+          | We will definitely suggest people with the same interest as you.
+          | You won't waste your time meeting random unrelated people.
+      button#defaultOpen.tablink(onclick="openTab('matchIntro', this, '#243743')") Matchmaking Algorithm
+      button.tablink(onclick="openTab('matchLocation', this, '#28B78D')") Location
+      button.tablink(onclick="openTab('matchInterest', this, '#8A949B')") Field Interest
+    .diagram
+      .rectangle
+      h2 Matchmaking Illustration
+      img#matchDiagram(src='icon/matchDiagram.png', alt='Matchmaking Illustration')
+      .rectangle
+    .rank
+      h1 Task Rank Priority
+      p
+        | Every time a task is defined, task significance range input will be required.
+        | User must enter the importance level of the task, ranging from less important to very important.
+        | Bego will tailor an algorithm that allows you to sort task from the very important to less important.
+    .footer
+      p Copyright 2018 Bego. All Rights Reserved.
+      p#lastMod
+    script(src='sidenavModal.js')
+    script(src='openTab.js')

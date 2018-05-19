@@ -1,0 +1,146 @@
+/*--Below is css layout for the entire website*/
+
+        * {
+            box-sizing: border-box;
+            font-family:'Helvetica';
+        }
+
+        nav{
+            padding-top: 70px;
+        }
+        
+        h1 {
+            text-align:left;
+        }
+
+        body {
+            margin:0px auto;
+            background: url(background/clean-2721103_1920.jpg) repeat;
+            background-size:100% 100%;
+            text-align:center;
+            padding-bottom:50px;
+        }
+        
+
+        header {
+            width:100%;
+            margin:0px auto;
+            padding:20px;
+            text-align:center;
+            display: block;
+        }
+        
+        .contents{
+            text-align:center;
+            margin-top:30px;
+            width:75%;
+            margin:auto;
+            color:black;
+            padding:20px;
+	    }
+
+        p {
+            text-align:justify;
+        }
+
+        nav a {
+            float: right;
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 35px 35px;
+            margin-left:15px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color:white;
+            color: black;
+        }
+        
+        table {
+            width:100%;
+            border-collapse:collapse;
+        }
+        table, th, td {
+            border-bottom: 2px solid #28B78D;  
+        }
+
+        table td{
+            font-size: 15px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .list-table tr:nth-child(even), .projects tr:nth-child(even) {
+            background-color: transparent;
+        }
+        .list-table tr:nth-child(odd), .projects tr:nth-child(odd) {
+        background-color: transparent;
+        }
+        .list-table th, .projects th{
+            background-color: #28B78D;
+            color: black;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .normalbtn{
+            float:right;
+            background-color:#28B78D;
+            color:#243743;
+            border-radius: 100px;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px;
+            width: 150px;
+            cursor: pointer;
+            margin-top: -25px;
+            margin-left:10px;
+            outline: none;
+        }
+        
+        .normalbtn span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+          
+        .normalbtn span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+        }
+        
+        .normalbtn:hover{
+            background-color:#243743;
+            color:#28B78D;
+            border-radius: 100px;
+        }
+
+        .normalbtn:hover span {
+            padding-right: 25px;
+            text-decoration: underline;
+        }
+          
+        .normalbtn:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        select, #mydate,#myeditdate{
+            background: #f1f1f1;
+            border: none;
+            font-size: 14px;
+            height: 29px;
+            padding: 5px; 
+            width: 268px;
+            margin-top:5px;
+            outline: none;
+        }
+        

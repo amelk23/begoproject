@@ -1,0 +1,629 @@
+/*home*/
+.homepage{
+    overflow: auto;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.homepage .background img{
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+#logo, #subLogo, #subLogo2{
+    width: 130px;
+}
+
+.homepage .header #logoBtn {
+    background-color: transparent;
+    border: none;
+    float: left;
+    outline: none;
+    cursor: pointer;
+    
+}
+
+.homepage .header #logoBtn:hover{
+    opacity: 0.7;
+}
+
+.homepage .header #signin{
+    background-color: #28B78D;
+    color: white;
+    border-radius: 10px;
+    float: right;
+    padding: 17px;
+    border: none;
+    font-size: 13px;
+    margin: 25px;
+    outline: none;
+}
+
+.homepage .header #signin:hover{
+    background: #243743;
+    background: linear-gradient(to bottom right, #243743, #28B78D);
+    cursor: pointer;
+}
+
+.homepage .header #signup{
+    background-color: #243743;
+    color: white;
+    border-radius: 10px;
+    float: right;
+    padding: 17px;
+    border: none;
+    font-size: 13px;
+    margin-right: 50px;
+    margin-top: 25px;
+    outline: none;
+}
+
+.homepage .header #signup:hover{
+    background-color: #28B78D;
+    background: linear-gradient(to bottom right, #243743, #28B78D);
+    cursor: pointer;
+}
+
+.homepage .caption .circle #circle1{
+    position: fixed;
+    top: 35%;
+    left: 41%;
+    width: 40px;
+    height: 40px;
+    background: #28B78D;
+    border-radius: 25px; 
+}
+
+.homepage .caption .circle #circle2{
+    position: fixed;
+    top: 35%;
+    left: 48%;
+    width: 40px;
+    height: 40px;
+    background: #243743;
+    border-radius: 25px;
+}
+
+.homepage .caption .circle #circle3{
+    position: fixed;
+    top: 35%;
+    left: 55%;
+    width: 40px;
+    height: 40px;
+    background: #8A949B;
+    border-radius: 25px;
+}
+
+.homepage .caption h1{
+    position: fixed;
+    top: 37%;
+    left: 22%;
+    font-size: 70px;
+    font-family: arial;
+}
+
+.homepage .caption button{
+    position: fixed;
+    top: 60%;
+    left: 40%;
+    background-color: transparent;
+    border-radius: 100px;
+    padding: 18px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 15px;
+    border-color: black;
+    border-width: 2px;
+    outline: none;
+    margin-top: 30px;
+    font-family: arial;
+    font-weight: bold;
+}
+
+
+
+.homepage .caption button:hover{
+    background:#28B78D;
+    background: linear-gradient(to bottom right, #243743, #28B78D);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.footer, footer{
+    position:fixed;
+	width: 100%;
+	bottom:0px;
+	background-color: rgba(40, 183, 141, 0.7);
+    padding-top:7px;
+    padding-bottom: 7px;
+    text-align: center;
+    left: 0px;
+    right: 0px;
+}
+
+.footer p, footer p{
+	font-size: 11px;
+	display: inline;
+	color: black;
+	font-family: "Arial";
+    margin-right: 5px;
+}
+
+/*HOME - SIGN IN & SIGN UP, ADD TASK MODAL*/
+
+#modal, #modal2, #addTaskModal{
+    margin-left: 33%;
+    width: 100%;
+    position: fixed;
+    top: 5%;
+    display: none;
+}
+.form{
+    width: 400px;
+    background-color: rgba(36, 55, 67, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.form #close, #close2, #closesidenav{
+    background-color: transparent;
+    font-size: 30px;
+    color: white;
+    float: right;
+    border: none;
+    outline:none;
+}
+
+.form #subLogo2, #subLogo{
+    margin-left: 32%;
+    margin-bottom: 0px;
+}
+
+
+.form button{
+    margin-bottom: 15px;
+    width: 100px;
+    background-color: #28B78D;
+    border: none;
+    padding: 15px 20px;;
+    cursor: pointer;
+    outline: none;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    color: #243743;
+    font-weight: bold;
+}
+
+.form button:hover{
+    background-color: #28B78D;
+    opacity: 0.7;
+}
+
+.form input[type=text], .form input[type=password], .form select, .form #projBrief{
+    display: block;
+    width: 200px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 90px;
+    outline:none;
+    background-color: #8A949B;
+    border:none;
+}
+
+.homepage .form select, .about .form select{
+    height: 35px;
+    width: 220px;
+}
+
+.form ::placeholder{
+    color: #243743;
+}
+
+.form #submitUp, .form #submitIn{
+    width: 220px;
+    margin-left: 90px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.form #fieldNames{
+    height: 70px;
+}
+
+#addTaskModal{
+    top: 25%;
+    position: fixed;
+}
+
+#addTaskBtn{
+    width: 220px;
+    font-weight: bold;
+    margin-left: 95px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#addTaskSelect{
+    width: 220px;
+    height: 37px;
+    background-color: #8A949B;
+    border: none;
+}
+
+.form h3{
+    margin-left: 35%;
+    color: #28B78D;
+}
+
+/*SIDE NAV*/
+#sidenav, .sidenav{
+    background-color: rgba(40, 183, 141, 0.9);
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    display:none;
+    text-align: left;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+#sidenav a, .sidenav a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin: 50px;
+    font-family: verdana;
+    transition: 0.3s;
+}
+
+#sidenav a:hover, .sidenav a:hover{
+    color: #a0f2f5;
+    text-decoration: underline;
+}
+
+#closesidenav:hover, .sidenav .closebtn:hover{
+    color: #243743;
+    cursor: pointer;
+    font-size: 30px;
+    text-decoration:none;
+}
+
+#navoption{
+    margin-top: 150px;
+}
+
+.about #sidenav, .teamMember #sidenav, .references #sidenav, .matchMaking #sidenav{
+    position: fixed;
+    top: 0;
+    background-color: rgba(40, 183, 141, 0.9);
+    z-index: 1;
+    left: 0px;
+}
+
+#sidenavBtn{
+    position: absolute;
+    top: 9%;
+    right: 6%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#sidenavBtn:hover{
+    opacity: 0.5;
+}
+
+#sidenavImg{
+    width: 50px;
+}
+
+.sidenav{
+    right: 0px;
+}
+
+
+/*ABOUT US*/
+.about{
+    overflow: auto;
+}
+
+.about .background {
+    opacity: 0.2;
+}
+
+.about .background img, .about .background2 img{
+    width: 100%;
+    z-index: -1;
+}
+
+header #logo, .about .logo img, .teamMember .logo img, .references .logo img, .matchMaking .logo img{
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    width: 130px;
+}
+
+.about .aboutUsText h1{
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.about .aboutUsText p{
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    top: 35%;
+    font-size: 15px;
+    line-height: 2;
+    text-align: justify;
+    font-family: verdana;
+    color: #243743;
+}
+
+
+.about .aboutUsText #close{
+    font-size: 30px;
+    top: 85%;
+    font-family: verdana;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+
+}
+
+.about .rectangle{
+    width: 100%;
+    height: 40px;
+    background-color: #243743;
+    margin-bottom: 0px;
+}
+
+.about .aboutIcon img{
+    width: 33%;
+}
+
+.about #joinUs{
+    position: absolute;
+    top: 210%;
+    left: 62%;
+    padding: 30px;
+    width: 250px;
+    font-size: 15px;
+    background-color: rgba(36, 55, 67, 0.8);
+    border-color: #243743;
+    border-radius: 100px;
+    cursor: pointer;
+    outline: none;
+    border-width: 5px;
+    font-weight: bold;
+}
+
+.about #joinUs:hover{
+    background: #28B78D;
+    background: linear-gradient(to bottom right, #243743, #28B78D);
+}
+
+/*subHome*/
+.tab{
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    background: linear-gradient(to bottom right, #256A60, #28B78D);
+    border: none;
+    position: fixed;
+}
+
+.tab #sublogo{
+    width: 90px;
+    margin-left: 20px;
+    margin-bottom: 17px;
+}
+
+.tab button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.tab button:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.tab #homeIcon, #addIcon, #requestIcon, #signOutIcon, #editIcon{
+    width: 50px;
+    background-color: transparent;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+}
+
+.tab .floatRight{
+    float:right;
+}
+
+.tab .signout{
+    margin-right: 15px;
+}
+
+/*TEAM MEMBER*/
+.teamMember{
+    text-align: center;
+    font-family: arial;
+}
+.teamMember .background img, .references .background img{
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    opacity: 1;
+    top: 0;
+    left: 0;
+}
+
+.teamMember h2{
+    margin-top: 80px;
+    color: #243743;
+    font-size: 40px;
+    font-weight: normal;
+    border-bottom: solid 1px #000;
+    padding-bottom: 6px;
+    display: inline-block;
+    position: fixed;
+}
+
+.teamMember .adiDetails{
+    float: left;
+    margin-left: 330px;
+    margin-top: 200px;
+}
+
+.teamMember .amelDetails{
+    float: right;
+    margin-right: 250px;
+    margin-top: 200px;
+}
+
+.teamMember h3, teamMember h4{
+    font-weight: normal;
+}
+
+/*REFERENCES*/
+.references h2{
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 5px;
+    font-family: arial;
+    font-size: 20px;
+    color: #243743;
+    font-weight:normal;
+}
+.references table{
+    margin: auto;
+    margin-top: 10px;
+    font-family: arial;
+    font-size: 13px;
+    border: 2px solid #28B78D;
+}
+
+.references .referenceList th, .references .referenceList td{
+    padding: 7px;
+    padding-right: 15px;
+}
+
+.references .referenceList th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #28B78D;
+}
+
+/*MATCHMAKING ALGO*/
+.matchMaking{
+    overflow: auto;
+    overflow-x: hidden;
+    font-family: arial;
+}
+.matchTab{
+    margin-top: 150px;
+}
+.matchMaking .tablink{
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 33.333%;
+}
+
+.matchMaking .tablink:hover{
+    background-color: #777;
+}
+
+.matchMaking .tabcontent{
+    color: white;
+    display: none;
+    padding: 100px;
+    text-align: center;
+}
+
+#matchIntro {
+    background: #243743;
+    background:linear-gradient(to bottom right, #243743, #28B78D);
+}
+
+#matchLocation{
+    background: #28B78D;
+    background:linear-gradient(to bottom right, #28B78D, #243743);
+}
+
+#matchInterest{
+    background: #8A949B;
+    background:linear-gradient(to bottom left, #243743, #28B78D);
+}
+
+.matchMaking img{
+    width: 100%;
+}
+
+.matchMaking .rectangle{
+    width: 100%;
+    height: 40px;
+    background: #28B78D;
+    background: linear-gradient(to bottom right, #243743, #28B78D);
+    margin-top: 50px;
+}
+
+.matchMaking .footer{
+    width: 100%;
+}
+
+.matchMaking .diagram h2{
+    text-align: center;
+    font-family: arial;
+    color: #243743;
+    font-size: 30px;
+    bottom: 0px;
+}
+
+.matchMaking .tabcontent h2{
+    font-size: 30px;
+}
+
+.matchMaking .tabcontent h5{
+    font-size: 15px;
+}
+
+.matchMaking .tabcontent p{
+    font-size: 14px;
+    font-style: italic;
+}
+
+.matchMaking .tabcontent h6{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 2;
+}
+
+.matchMaking .rank{
+    text-align: center;
+    padding: 80px;
+    background: #28B78D;
+    background:linear-gradient(to bottom right, #243743, #28B78D);
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 2;
+    color: white;
+}

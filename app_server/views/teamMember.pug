@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Team Member
+    link(rel='stylesheet', type='text/css', href='bego.css')
+  body.teamMember(onload='lastModifiedDate()')
+  block content
+    .background
+      img(src='background/office-1701161_1920.png', alt='background')
+    .logo
+      img(src='logo/2.png', alt='logo')
+    button#sidenavBtn
+      img#sidenavImg(src='icon/baricon.png', alt='sidenav logo')
+    #sidenav
+      button#closesidenav ×
+      #navoption
+        a(href='home') Home
+        a(href='aboutus') About Us
+        a(href='matchmakingAlgo') Matchmaking Algorithm
+        a(href='references') References
+    .footer
+      p Copyright 2018 Bego. All Rights Reserved.
+      p#lastMod
+    h2
+      | Meet the 
+      b Bego Team
+    .adiDetails
+      h3 Adi Santoso
+      h4 21760921
+    .amelDetails
+      h3 Amelita Karunia
+      h4 21771045
+    script(src='sidenavModal.js')
+    script(src='lastModified.js')

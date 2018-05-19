@@ -1,0 +1,271 @@
+doctype html
+html
+  head
+    title BEGO - Project Details
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='icon', href='logo/2.png')
+    // Importing external layout from layout.css file
+    link(rel='stylesheet', type='text/css', href='layout.css')
+    // New project Form layout
+    link(rel='stylesheet', type='text/css', href='form-layout.css')
+    link(rel='stylesheet', type='text/css', href='bego.css')
+    // Import Javascript codes
+    script(src='script.js')
+    script(src='lastModified.js')
+    // CSS style for div project-info and its' button i.e. Leave button
+    style.
+      .project-info{
+      background-color: rgba(36, 55, 67, 0.2);
+      border-radius: 10px;
+      background-size:100% 100%;
+      width: 80%;
+      border: none;
+      padding: 40px;
+      margin:auto;
+      margin-top:100px;
+      margin-bottom:40px;
+      }
+      .descbtn{
+      width:140px;
+      float:right;
+      margin:20px;
+      background-color:#243743;
+      border-radius: 10px;
+      }
+      .descbtn:hover{
+      background-color: #28B78D;
+      }
+      .project-info a{
+      cursor:pointer;
+      color:blue;
+      text-decoration:underline;
+      }
+      .project-info a:hover{
+      opacity:0.6;
+      text-decoration:underline;
+      }
+  body(onload='lastModifiedDate()')
+  block content
+    // Side navigation
+    #mySidenav.sidenav
+      a.closebtn(href='#', onclick='closeNav()') ×
+      a(href='Homelogin') Home
+      a(href='Findproject') Find Projects
+      a(href='Editprofile') Edit Profile
+      a(href='Preference') Your Preference
+      a(href='home', onclick='confirmlogout()') Logout
+    // Header section
+    header
+      a(href='Homelogin')
+        img#logo(src='logo/2.png', alt='Bego Logo')
+      nav
+        a.normalbtn(style='width:70px', onclick='openNav()') ☰ 
+    // Add Member form
+    #addmember.modal
+      span.close(onclick="document.getElementById('addmember').style.display='none'", title='Close Modal') ×
+      form#memberform.modal-content.animate(action='#')
+        .container
+          h1 Add friends!
+          p
+            | Invite people to join in your project and help you build your dream! We have compiled all
+            | the people near you, who has the same passion to succeed as much as you!
+          hr
+          // Add member table
+          table.list-table
+            tr
+              th Name
+              th Skills
+              th Interest
+              th Location
+              th(colspan='2') Action
+            tr
+              td Dilan
+              td Accounting and Finance
+              td Sport, Cuisine
+              td Western Australia
+              td
+                a(style='color:red', href='Projectdetails') Remove
+              td
+                a(style='color:blue', href='Projectdetails') Add
+            tr
+              td Milea
+              td Leadership and Motivator
+              td Beauty, Fashion, Sport
+              td Victoria
+              td
+                a(style='color:red', href='Projectdetails') Remove
+              td
+                a(style='color:blue', href='Projectdetails') Add
+    // Post Task form
+    #taskform.modal
+      span.close(onclick="document.getElementById('taskform').style.display='none'", title='Close Modal') ×
+      form.modal-content.animate(name='posttask', action='Projectdetails', onsubmit='return todaydate(0)')
+        .container
+          h1 Post New Task!
+          p
+            | Please fill in this form to post a new task. Once done, you and your peers
+            | should be able to see the details on the page.
+          hr
+          label
+            b Task
+          br
+          textarea(style='outline:none', rows='3', cols='50', placeholder='Enter description here...', required='')
+          br
+          label
+            b Who Should Do it
+          input(type='text', placeholder='Enter Name(s) i.e. Michael, James', pattern='^[a-zA-Z]+(,[a-zA-Z]+)*$', title='Only Names separated with comma, NO Whitespaces', required='')
+          label
+            b Rank the Priority (5 is the highest)
+          div
+            select(style='outline:none')
+              option(value='1') 1 ★
+              option(value='2') 2 ★
+              option(value='3') 3 ★
+              option(value='4') 4 ★
+              option(value='5') 5 ★
+          br
+          // Note:As some websites do not support input type=date, it will require their typed date input
+          // and it will be checked when the form is submitted(via js function)
+          label
+            b Due Date (YYYY-MM-DD)
+          br
+          input#mydate(type='date', min='2018-01-01', data-date-inline-picker='true', style='margin-bottom:40px;margin-top:5px', title='Format must be YYYY-MM-DD', required='')
+          .clearfix
+            button.cancelbtn(type='button', onclick="document.getElementById('taskform').style.display='none'") Cancel
+            button.signupbtn(type='submit') Submit
+    // Edit Task form
+    #edittask.modal
+      span.close(onclick="document.getElementById('edittask').style.display='none'", title='Close Modal') ×
+      form.modal-content.animate(name='edit-task', action='Projectdetails', onsubmit='return todaydate(1)')
+        .container
+          h1 Edit Task
+          p
+            | Here, you are able to edit the posted task. Once you edit the priority of
+            | the task, it may affect the rank of importance of the task.
+          hr
+          label
+            b Task
+          br
+          textarea(style='outline:none', rows='3', cols='50', placeholder='Enter description here...', required='')
+          br
+          label
+            b Who Should Do it
+          input(type='text', placeholder='Enter Name(s) i.e. Michael, James', pattern='^[a-zA-Z]+(,[a-zA-Z]+)*$', title='Only Names separated with comma, NO Whitespaces', required='')
+          label
+            b Rank the Priority (5 is the highest)
+          div
+            select(style='outline:none')
+              option(value='1') 1 ★
+              option(value='2') 2 ★
+              option(value='3') 3 ★
+              option(value='4') 4 ★
+              option(value='5') 5 ★
+          br
+          // Note:As some websites do not support input type=date, it will require their typed date input
+          // and it will be checked when the form is submitted(via js function)
+          label
+            b Due Date (YYYY-MM-DD)
+          br
+          input#myeditdate(type='date', min='2018-01-01', data-date-inline-picker='true', style='margin-bottom:40px;margin-top:5px', title='Format must be YYYY-MM-DD', required='')
+          .clearfix
+            button.cancelbtn(type='button', onclick="document.getElementById('edittask').style.display='none'") Cancel
+            button.signupbtn(type='submit') Submit
+    // Project Information section
+    .project-info
+      // Leave group button
+      button.descbtn(style='background-color:red; border-radius: 10px;', onclick='return confirmleave()') Leave
+      h1 Football Tournament
+      hr
+      // Project Details
+      #details
+        p
+          b Start Date:
+          |  20/3/2018
+        p
+          b Project Field:
+          |  Sport
+        p
+          b Project Description:
+          br
+          |  This is a project to create a new football league in WA. I believe that
+          |                 a lot of people and myself wants to have a new league to play in, as the current
+          |                 one is already full of professional athletes.
+        p
+          b Location:
+          |  Western Australia
+      // List of group members
+      #grp-member
+        h1(style='float:left') Group Members
+        button.descbtn(onclick="document.getElementById('addmember').style.display='block'") Add Member
+        // Member table
+        table#mymember.list-table
+          tr
+            th(style='cursor:pointer', onclick='tablesort(0,0)') Group Member ♦
+            th Skills
+            th Role(s)
+          tr
+            td George
+            td Banking and Finance
+            td Accounting and Finance manager 
+          tr
+            td Febri
+            td Project Management
+            td Project Leader 
+          tr
+            td Son Heung Min
+            td Marketing
+            td Brand Ambassador
+      // List of tasks
+      #grp-task
+        h1 Tasks
+        button.descbtn(onclick="document.getElementById('taskform').style.display='block'") Create Task!
+        p
+          | Below are tasks required to be done and it's due date. Our algorithm method will rank the
+          | importance of each task by considering its due date and its priority (from the user). Essentially,
+          | it will allow everyone to easily manage each task.
+        // Task table
+        table#mytask.list-table
+          tr
+            th(style='cursor:pointer', onclick='tablesort(1,0)') Rank of importance ♦
+            th Task
+            th Who should do it
+            th Due date
+            th(colspan='2') Action
+          tr
+            td
+              | 5 
+              span(style='color:gold') ★
+            td Prepare financial journal and bank statement to support the league 
+            td Febri, George
+            td  10/5/2018
+            td
+              a(onclick="document.getElementById('edittask').style.display='block'") Edit
+            td
+              a(href='Projectdetails', style='color:red', onclick='return confirmaction()') Delete
+          tr
+            td
+              | 2 
+              span(style='color:gold') ★
+            td Publish the news of our new Football Tournament Grand Opening on social media
+            td Son Heung Min
+            td 27/4/2018
+            td
+              a(onclick="document.getElementById('edittask').style.display='block'") Edit
+            td
+              a(href='Projectdetails', style='color:red', onclick='return confirmaction()') Delete
+          tr
+            td
+              | 4 
+              span(style='color:gold') ★
+            td Submit EOI to the WA Sporting Committee about creating a new Football league
+            td George
+            td 15/5/2018
+            td
+              a(onclick="document.getElementById('edittask').style.display='block'") Edit
+            td
+              a(href='Projectdetails', style='color:red', onclick='return confirmaction()') Delete
+    // Footer area
+    footer
+      p Copyright 2018 Bego. All Rights Reserved.
+      p#lastMod
