@@ -404,8 +404,8 @@ html
       // Search Project menu
       input#searchhome(type='text', onkeyup='searchmenu(0)', style='border:1px solid #28B78D;background-color:white;', placeholder=' Search Project...', title='Type in Project Name')
       // Project list table
-      #project-table
-        table.list-table(action="/getprojects")
+      #project-table(action="/getprojects")
+        table.list-table
           tr
             th Project Name
             th Project Field
