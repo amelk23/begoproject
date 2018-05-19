@@ -33,6 +33,22 @@ module.exports.findproject = function(req, res) {
     res.render('Findproject.pug');
 };
 
+/*GET Project list PAGE*/
+module.exports.listresult = function(req, res) {
+    var resultArray = [];
+    mongo.connect(url, function(err, db){
+        assert.equal(null,err);
+        var cursor = db.collection('projects').find();
+        cursor.forEach(function(doc, err){
+            assert.equal(null, err);
+            resultArray.push(doc);
+        }, function(){
+            db.close();
+            res.render('projects', {item: resultArray});
+        });
+    });
+};
+
 /*GET Project details PAGE*/
 module.exports.projectdetails = function(req, res) {
     res.render('Projectdetails.pug');

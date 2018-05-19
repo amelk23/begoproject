@@ -405,7 +405,7 @@ html
       input#searchhome(type='text', onkeyup='searchmenu(0)', style='border:1px solid #28B78D;background-color:white;', placeholder=' Search Project...', title='Type in Project Name')
       // Project list table
       #project-table
-        table.list-table(action="/Homelogin")
+        table.list-table(action="/getprojects")
           tr
             th Project Name
             th Project Field
@@ -414,13 +414,13 @@ html
             th Start Date
             th Action
 
-        each project in -projects
+        each project in item
           tr
-            td= project.name
-            td= project.field
-            td= project.location
-            td= project.description
-            td= project.startdate
+            td #{project.name}
+            td #{project.field}
+            td #{project.location}
+            td #{project.description}
+            td #{project.startdate}
             td
               a.view(href= 'Projectdetails') View
 

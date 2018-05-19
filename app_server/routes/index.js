@@ -24,6 +24,9 @@ router.get('/references', ctrlMain.references);
 /* GET Home Login page. */
 router.get('/Homelogin', ctrlMain.homelogin);
 
+/* GET Home Login page. */
+router.get('/getprojects', ctrlMain.listresult);
+
 /* GET Project details page. */
 router.get('/Projectdetails', ctrlMain.projectdetails);
 
