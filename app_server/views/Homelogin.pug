@@ -404,7 +404,7 @@ html
       // Search Project menu
       input#searchhome(type='text', onkeyup='searchmenu(0)', style='border:1px solid #28B78D;background-color:white;', placeholder=' Search Project...', title='Type in Project Name')
       // Project list table
-      #project-table(action="/getprojects")
+      #project-table
         table.list-table
           tr
             th Project Name
@@ -414,7 +414,7 @@ html
             th Start Date
             th Action
 
-        each project in item
+        each project in -projects
           tr
             td #{project.name}
             td #{project.field}
