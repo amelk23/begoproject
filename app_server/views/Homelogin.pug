@@ -413,14 +413,15 @@ html
             th Description
             th Start Date
             th Action
-          each project in -projlist
+          -each project in projlist
             tr
               td #{project.name}
               td #{project.field}
               td #{project.location}
               td #{project.description}
               td #{project.startdate}
-              td #{project.startdate}
+              td
+                a.view(href= 'Projectdetails') View
 
     // Footer area
     footer
