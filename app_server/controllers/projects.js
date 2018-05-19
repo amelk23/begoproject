@@ -35,6 +35,7 @@ module.exports.newPrj = function(req, res, next){
         name: req.body.name, 
         field: req.body.field,
         location: req.body.location,
+        description: req.body.description,
         startdate: req.body.startdate
     });
     newProject.save(function(err,data){
