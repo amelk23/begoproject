@@ -198,7 +198,7 @@ function tablesort(tnumber,n) {
 
 //Dynamic adding of project list
 function DisplayNewProject(currproject) {
-    var mytable = document.getElementById("myproject");
+    var mytable = document.getElementById("project-table");
     var x = mytable.rows.length;
     var row = mytable.insertRow(x);
 

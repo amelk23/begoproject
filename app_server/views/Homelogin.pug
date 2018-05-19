@@ -405,7 +405,7 @@ html
       input#searchhome(type='text', onkeyup='searchmenu(0)', style='border:1px solid #28B78D;background-color:white;', placeholder=' Search Project...', title='Type in Project Name')
       // Project list table
       #project-table
-        table.list-table
+        table.list-table(onload="DisplayNewProject(this)")
           tr
             th Project Name
             th Project Field
@@ -415,7 +415,6 @@ html
             th Action
 
         each project in -projects
-          console.log(project.name)
           tr
             td= project.name
             td= project.field
