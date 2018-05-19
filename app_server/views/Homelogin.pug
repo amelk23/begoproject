@@ -60,11 +60,7 @@ html
         img#logo(src='logo/2.png', alt='Bego Logo')
       nav
         a.normalbtn(style='width:70px', onclick='openNav()') ☰ 
-    // Form for New Project
-    #newproject.modal
-      span.close(onclick="document.getElementById('newproject').style.display='none'", title='Close Modal') ×
-      form#projectform.modal-content.animate(action="/Homelogin",method="post")
-        .container
+
           h1 Create New Project
           p
             | Please fill in this form to create a new project. Once created, you will
@@ -423,7 +419,11 @@ html
               td= project.startdate
               td
                 a.view(href= 'Projectdetails') View
-
+    // Form for New Project
+    #newproject.modal
+      span.close(onclick="document.getElementById('newproject').style.display='none'", title='Close Modal') ×
+      form#projectform.modal-content.animate(action="/Homelogin",method="post")
+        .container
     // Footer area
     footer
       p Copyright 2018 Bego. All Rights Reserved.
