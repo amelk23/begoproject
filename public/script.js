@@ -195,3 +195,32 @@ function tablesort(tnumber,n) {
         }
     }    
 }
+
+//Dynamic adding of project list
+function DisplayNewProject(currproject) {
+    var mytable = document.getElementById("myproject");
+    var x = mytable.rows.length;
+    var row = mytable.insertRow(x);
+
+    //Insert new rows
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+
+    //Insert new values
+    cell1.innerHTML = currproject.name;
+    cell2.innerHTML = currproject.field;
+    cell3.innerHTML = currproject.location;
+    cell4.innerHTML = currproject.description;
+    cell5.innerHTML = currproject.startdate;
+
+    var newview = document.createElement("a");
+    newview.href="Projectdetails";
+    var txt = document.createTextNode("View");
+    newview.className = "view";
+    newview.appendChild(txt);
+    cell6.appendChild(newview);
+}
