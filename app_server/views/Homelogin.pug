@@ -414,9 +414,16 @@ html
             th Start Date
             th Action
 
-      each project in -projects
-        ul
-          li= project.name
+        each project in -projects
+          .project
+            tr
+              td= project.name
+              td= project.field
+              td= project.location
+              td= project.description
+              td= project.startdate
+              td
+                a.view(href= 'Projectdetails') View
 
     // Footer area
     footer
