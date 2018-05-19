@@ -414,13 +414,12 @@ html
             th Start Date
             th Action
 
-        each project in -projects
-          tr
-            td= (project.name)
-            td= (project.field)
-            td= (project.location)
-            td= (project.description)
-            td= (project.startdate)
+          tr(ng-repeat="project in projects")
+            td= project.name
+            td= project.field
+            td= project.location
+            td= project.description
+            td= project.startdate
             td
               a.view(href= 'Projectdetails') View
 
