@@ -23,7 +23,7 @@ function checkpassword(first,second){
 //Confirms logout pop-up
 function confirmlogout() {
     if(confirm("Are you sure you want to logout?")){
-        location.href="Home.html";
+        location.href="/";
         return true;                    
     }
     else{
@@ -39,7 +39,7 @@ function confirmaction() {
 //Confirms Update page pop-up
 function confirmupdate() {
     if(confirm("Are you sure you want to update your information/preferences?")){
-        location.href="Homelogin.html";
+        location.href="/Homelogin";
         return true;
     }
     else{
@@ -50,7 +50,7 @@ function confirmupdate() {
 //Confirms Leaving page pop-up
 function confirmleave() {
     if(confirm("Are you sure you want to leave this group project?")){
-        location.href="Homelogin.html";
+        location.href="/Homelogin";
         return true;
     }
     else{

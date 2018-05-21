@@ -4,15 +4,15 @@ html
     title BEGO - Project Details
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='icon', href='logo/2.png')
+    link(rel='icon', href='/logo/2.png')
     // Importing external layout from layout.css file
-    link(rel='stylesheet', type='text/css', href='layout.css')
+    link(rel='stylesheet', type='text/css', href='/layout.css')
     // New project Form layout
-    link(rel='stylesheet', type='text/css', href='form-layout.css')
-    link(rel='stylesheet', type='text/css', href='bego.css')
+    link(rel='stylesheet', type='text/css', href='/form-layout.css')
+    link(rel='stylesheet', type='text/css', href='/bego.css')
     // Import Javascript codes
-    script(src='script.js')
-    script(src='lastModified.js')
+    script(src='/script.js')
+    script(src='/lastModified.js')
     // CSS style for div project-info and its' button i.e. Leave button
     style.
       .project-info{
@@ -46,19 +46,20 @@ html
       text-decoration:underline;
       }
   body(onload='lastModifiedDate()')
+
   block content
     // Side navigation
     #mySidenav.sidenav
       a.closebtn(href='#', onclick='closeNav()') ×
-      a(href='Homelogin') Home
-      a(href='Findproject') Find Projects
-      a(href='Editprofile') Edit Profile
-      a(href='Preference') Your Preference
-      a(href='home', onclick='confirmlogout()') Logout
+      a(href='/Homelogin') Home
+      a(href='/Findproject') Find Projects
+      a(href='/Editprofile') Edit Profile
+      a(href='/Preference') Your Preference
+      a(href='/home', onclick='confirmlogout()') Logout
     // Header section
     header
-      a(href='Homelogin')
-        img#logo(src='logo/2.png', alt='Bego Logo')
+      a(href='/Homelogin')
+        img#logo(src='/logo/2.png', alt='Bego Logo')
       nav
         a.normalbtn(style='width:70px', onclick='openNav()') ☰ 
     // Add Member form
@@ -175,25 +176,23 @@ html
     .project-info
       // Leave group button
       button.descbtn(style='background-color:red; border-radius: 10px;', onclick='return confirmleave()') Leave
-      h1 Football Tournament
+      h1 #{projdetail.name}
       hr
       // Project Details
       #details
         p
           b Start Date:
-          |  20/3/2018
+          |  #{projdetail.startdate}
         p
           b Project Field:
-          |  Sport
+          |  #{projdetail.field}
         p
           b Project Description:
           br
-          |  This is a project to create a new football league in WA. I believe that
-          |                 a lot of people and myself wants to have a new league to play in, as the current
-          |                 one is already full of professional athletes.
+          |  #{projdetail.description}
         p
           b Location:
-          |  Western Australia
+          |  #{projdetail.location}
       // List of group members
       #grp-member
         h1(style='float:left') Group Members

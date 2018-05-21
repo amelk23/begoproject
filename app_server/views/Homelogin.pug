@@ -389,7 +389,7 @@ html
           br
           .clearfix
             button.cancelbtn(type='button', onclick="document.getElementById('newproject').style.display='none'") Cancel
-            button.signupbtn(type='submit',action='/projlist') Create
+            button.signupbtn(type='submit') Create
     // Project list section
     .project-list
       // New Project button
@@ -413,7 +413,7 @@ html
             th Description
             th Start Date
             th Action
-          each project in -projlist
+          each project in projlist
             tr
               td #{project.name}
               td #{project.field}
@@ -421,7 +421,7 @@ html
               td #{project.description}
               td #{project.startdate}
               td
-                a.view(href= 'Projectdetails') View
+                a.view(href= 'Projectdetails/'+project._id) View
 
     // Footer area
     footer

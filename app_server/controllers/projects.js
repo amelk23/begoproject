@@ -53,3 +53,23 @@ module.exports.newPrj = function(req, res, next){
         }
     });   
 }
+
+module.exports.newPrjdetail = function(req, res, next){
+
+    Project.findOne({_id: req.params.id}, function(err, data){
+        
+        if(err){
+            console.log(err);
+            res.status(500);
+            res.render('error',{
+                message:err.message,
+                error:err
+            });
+        }else{
+            console.log(data, 'displayed');
+            res.render('Projectdetails', {
+                projdetail : data
+            });
+        }
+    });
+}

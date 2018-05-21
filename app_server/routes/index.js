@@ -25,7 +25,7 @@ router.get('/references', ctrlMain.references);
 router.get('/Homelogin', ctrlMain.homelogin);
 
 /* GET Project details page. */
-router.get('/Projectdetails', ctrlMain.projectdetails);
+router.get('/Projectdetails/:id', ctrlProject.newPrjdetail);
 
 /* GET Find Project page. */
 router.get('/Findproject', ctrlMain.findproject);
@@ -37,18 +37,8 @@ router.get('/Editprofile', ctrlMain.editprofile);
 router.get('/Preference', ctrlMain.editpreference);
 
 /* POST NEW PROJECT*/
-router.get('/Homelogin', ctrlProject.projectList);
+//router.get('/Homelogin', ctrlProject.projectList);
 router.post('/Homelogin', ctrlProject.newPrj);
 
-/* GET projlist page. */
-router.get('/projlist', function(req, res) {
-    var db = req.db;
-    var collection = db.get('projects');
-    collection.find({},{},function(e,docs){
-        res.render('homelogin', {
-            "projlist" : docs
-        });
-    });
-});
 
 module.exports = router;

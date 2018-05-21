@@ -1,3 +1,8 @@
+var mongoose = require("mongoose");
+var Project = require("../models/Project");
+require("../models/db")
+
+
 /*GET HOME PAGE*/
 module.exports.home = function(req, res) {
   res.render('home.pug');
@@ -25,7 +30,11 @@ module.exports.references = function(req,res){
 
 /*GET Home login PAGE*/
 module.exports.homelogin = function(req, res) {
-    res.render('Homelogin.pug');
+    Project.find({},function(e,docs){
+        res.render('homelogin', {
+            projlist : docs
+        });
+    });
 };
 
 /*GET Find Project PAGE*/
