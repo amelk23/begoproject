@@ -7,13 +7,13 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='icon', href='logo/2.png')
     // Importing external layout from layout.css file
-    link(rel='stylesheet', type='text/css', href='layout.css')
+    link(rel='stylesheet', type='text/css', href='/layout.css')
     // New project Form layout
-    link(rel='stylesheet', type='text/css', href='form-layout.css')
-    link(rel='stylesheet', type='text/css', href='bego.css')
+    link(rel='stylesheet', type='text/css', href='/form-layout.css')
+    link(rel='stylesheet', type='text/css', href='/bego.css')
     // Import Javascript codes
-    script(src='script.js')
-    script(src='lastModified.js')
+    script(src='/script.js')
+    script(src='/lastModified.js')
     // CSS style for div project list and view button
     style.
       .project-list{
@@ -56,8 +56,8 @@ html
       a(href='home', onclick='confirmlogout()') Logout
     // Header section (and Logout button)
     header
-      a(href='Homelogin')
-        img#logo(src='logo/2.png', alt='Bego Logo')
+      a(href='/Homelogin')
+        img#logo(src='/logo/2.png', alt='Bego Logo')
       nav
         a.normalbtn(style='width:70px', onclick='openNav()') ☰ 
     // Form for New Project

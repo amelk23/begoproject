@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var ctrlMain = require('../controllers/main');
+var ctrlAcc = require('../controllers/account');
 var ctrlProject = require('../controllers/projects')
 
 /* GET home page. */
@@ -20,6 +21,12 @@ router.get('/teamMember', ctrlMain.team);
 
 /*GET References page*/
 router.get('/references', ctrlMain.references);
+
+/*Login to account*/
+router.post('/login', ctrlAcc.login);
+
+/*Register to account*/
+router.post('/register', ctrlAcc.regist);
 
 /* GET Home Login page. */
 router.get('/Homelogin', ctrlMain.homelogin);
