@@ -22,8 +22,6 @@ module.exports.regist = function(req, res){
 
 module.exports.login =  function(req, res) {
     passport.authenticate('local')(req, res, function () { 
-        console.log(data, 'displayed');
-        index(req,res,next);
         res.redirect('/Homelogin');
     });
 };

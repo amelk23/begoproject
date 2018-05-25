@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var Project = require("../models/Project");
+var Account = require("../models/account");
 require("../models/db")
 
 
@@ -30,16 +31,42 @@ module.exports.references = function(req,res){
 
 /*GET Home login PAGE*/
 module.exports.homelogin = function(req, res) {
-    Project.find({},function(e,docs){
-        res.render('homelogin', {
-            projlist : docs
-        });
+    Account.findOne({_id: req.user.id}, function(err, data){
+        if(err){
+            console.log(err);
+            res.status(500);
+            res.render('error',{
+                message:err.message,
+                error:err
+            });
+        }else{
+            Project.find({'_id' : {$in :data.myprojects }},function(e,docs){
+                res.render('homelogin', {
+                    projlist : docs
+                });
+            });
+        }
     });
 };
 
 /*GET Find Project PAGE*/
 module.exports.findproject = function(req, res) {
-    res.render('Findproject.pug');
+    Account.findOne({_id: req.user.id}, function(err, data){
+        if(err){
+            console.log(err);
+            res.status(500);
+            res.render('error',{
+                message:err.message,
+                error:err
+            });
+        }else{
+            Project.find({'location' : {$eq :data.country }, '_id':{$nin :data.myprojects}, 'field':{$in: data.fieldName}},function(e,docs){
+                res.render('Findproject', {
+                    newprojects : docs
+                });
+            });
+        }
+    });
 };
 
 /*GET Project details PAGE*/

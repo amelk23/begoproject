@@ -50,7 +50,7 @@ html
       a(href='Findproject') Find Projects
       a(href='Editprofile') Edit Profile
       a(href='Preference') Your Preference
-      a(href='home', onclick='confirmlogout()') Logout
+      a(href='/logout') Logout
     // Header section
     header
       a(href='Homelogin')
@@ -74,25 +74,16 @@ html
           th Description
           th Start Date
           th Action
-        tr
-          td Basketball League
-          td Sport
-          td Western Australia
-          td UWA's amateur basketball club are holding a 3v3 League this Summer!
-          td 14/5/2018
-          td
-            a.join(href='#') Join
-        tr
-          td Cooking Workshop
-          td Culinary
-          td Western Australia
-          td
-            | South Perth's cooking class academy will hold a workshop that
-            | is 5-week long. We will not only cook, but also have a chance to
-            | meet new people!
-          td 22/4/2018
-          td
-            a.join(href='#') Join
+        each project in newprojects
+          tr
+            td #{project.name}
+            td #{project.field}
+            td #{project.location}
+            td #{project.description}
+            td #{project.startdate}
+            td
+              a.join(href= 'Joinproject/'+project._id) Join
+    
     // Footer area
     footer
       p Copyright 2018 Bego. All Rights Reserved.

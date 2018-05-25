@@ -30,12 +30,16 @@ router.post('/register', ctrlAcc.regist);
 
 /* GET Home Login page. */
 router.get('/Homelogin', ctrlMain.homelogin);
+router.post('/Homelogin', ctrlProject.newPrj);
 
 /* GET Project details page. */
 router.get('/Projectdetails/:id', ctrlProject.newPrjdetail);
 
 /* GET Find Project page. */
 router.get('/Findproject', ctrlMain.findproject);
+
+/* Join new Project */
+router.get('/Joinproject/:projid', ctrlProject.joinproject);
 
 /* GET Edit Profile page. */
 router.get('/Editprofile', ctrlMain.editprofile);
@@ -45,7 +49,8 @@ router.get('/Preference', ctrlMain.editpreference);
 
 /* POST NEW PROJECT*/
 //router.get('/Homelogin', ctrlProject.projectList);
-router.post('/Homelogin', ctrlProject.newPrj);
 
+/* Logout */
+router.get('/logout', ctrlAcc.logout);
 
 module.exports = router;
