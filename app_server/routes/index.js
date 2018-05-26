@@ -4,6 +4,7 @@ var ctrlMain = require('../controllers/main');
 var ctrlAcc = require('../controllers/account');
 var ctrlProject = require('../controllers/projects')
 
+
 /* GET home page. */
 router.get('/', ctrlMain.home);
 
@@ -32,8 +33,10 @@ router.post('/register', ctrlAcc.regist);
 router.get('/Homelogin', ctrlMain.homelogin);
 router.post('/Homelogin', ctrlProject.newPrj);
 
+
 /* GET Project details page. */
 router.get('/Projectdetails/:id', ctrlProject.newPrjdetail);
+router.post('/Projectdetails/:id', ctrlProject.newTask);
 
 /* GET Find Project page. */
 router.get('/Findproject', ctrlMain.findproject);

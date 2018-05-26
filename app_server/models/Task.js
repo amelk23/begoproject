@@ -9,4 +9,4 @@ var taskSchema = new mongoose.Schema(
     }
 );
 
-mongoose.model('Task', projectSchema, 'tasks');
+module.exports = mongoose.model('Task', taskSchema);

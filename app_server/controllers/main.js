@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var Project = require("../models/Project");
 var Account = require("../models/account");
+var Task = require("../models/Task");
 require("../models/db")
 
 
@@ -70,9 +71,37 @@ module.exports.findproject = function(req, res) {
 };
 
 /*GET Project details PAGE*/
-module.exports.projectdetails = function(req, res) {
-    res.render('Projectdetails.pug');
-};
+/*module.exports.projectdetails = function(req, res) {
+    Account.findOne({_id: req.user.id}, function(err, data){
+        if(err){
+            console.log(err);
+            res.status(500);
+            res.render('error',{
+                message:err.message,
+                error:err
+            });
+        }else{
+            Project.findOne({_id: req.params.id},  function(err,data){
+                if(err){
+                    console.log(err);
+                    res.status(500);
+                    res.render('error',{
+                        message: err.message,
+                        error: err
+                    });
+                }
+                else{
+                    Task.find({'_id' : {$in :data.mytasks }},function(e,data,taskdata){
+                        res.render('Projectdetails', {
+                            projdetail: data,
+                            tasklist: taskdata
+                        });
+                    });
+                }
+            });
+        }
+    });
+};*/
 
 /*GET Edit Profile PAGE*/
 module.exports.editprofile = function(req, res) {

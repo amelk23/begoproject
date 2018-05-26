@@ -67,10 +67,10 @@ html
       span.close(onclick="document.getElementById('addmember').style.display='none'", title='Close Modal') ×
       form#memberform.modal-content.animate(action='#')
         .container
-          h1 Add friends!
+          h1 Add friends
           p
-            | Invite people to join in your project and help you build your dream! We have compiled all
-            | the people near you, who has the same passion to succeed as much as you!
+            | Invite people to join in your project and help you build your dream. We have compiled all
+            | the people near you, who has the same passion to succeed as much as you.
           hr
           // Add member table
           table.list-table
@@ -80,30 +80,24 @@ html
               th Interest
               th Location
               th(colspan='2') Action
+          
+          each member in -projectmembers
             tr
-              td Dilan
-              td Accounting and Finance
-              td Sport, Cuisine
-              td Western Australia
+              td #{member.name}
+              td #{member.name}
+              td #{member.name}
+              td #{member.country}
               td
                 a(style='color:red', href='Projectdetails') Remove
               td
                 a(style='color:blue', href='Projectdetails') Add
-            tr
-              td Milea
-              td Leadership and Motivator
-              td Beauty, Fashion, Sport
-              td Victoria
-              td
-                a(style='color:red', href='Projectdetails') Remove
-              td
-                a(style='color:blue', href='Projectdetails') Add
+
     // Post Task form
     #taskform.modal
       span.close(onclick="document.getElementById('taskform').style.display='none'", title='Close Modal') ×
-      form.modal-content.animate(name='posttask', action='Projectdetails', onsubmit='return todaydate(0)')
+      form.modal-content.animate(name='posttask', onsubmit='return todaydate(0)',action=('/Projectdetails/'+projdetail._id), method='post')
         .container
-          h1 Post New Task!
+          h1 Post New Task
           p
             | Please fill in this form to post a new task. Once done, you and your peers
             | should be able to see the details on the page.
@@ -111,15 +105,15 @@ html
           label
             b Task
           br
-          textarea(style='outline:none', rows='3', cols='50', placeholder='Enter description here...', required='')
+          textarea(style='outline:none', name='name', rows='3', cols='50', placeholder='Enter description here...', required='')
           br
           label
             b Who Should Do it
-          input(type='text', placeholder='Enter Name(s) i.e. Michael, James', pattern='^[a-zA-Z]+(,[a-zA-Z]+)*$', title='Only Names separated with comma, NO Whitespaces', required='')
+          input(type='text', name='member', placeholder='Enter Name(s) i.e. Michael, James', pattern='^[a-zA-Z]+(,[a-zA-Z]+)*$', title='Only Names separated with comma, NO Whitespaces', required='')
           label
             b Rank the Priority (5 is the highest)
           div
-            select(style='outline:none')
+            select(style='outline:none', name='rank')
               option(value='1') 1 ★
               option(value='2') 2 ★
               option(value='3') 3 ★
@@ -131,7 +125,7 @@ html
           label
             b Due Date (YYYY-MM-DD)
           br
-          input#mydate(type='date', min='2018-01-01', data-date-inline-picker='true', style='margin-bottom:40px;margin-top:5px', title='Format must be YYYY-MM-DD', required='')
+          input#mydate(type='date', name='deadline', min='2018-01-01', data-date-inline-picker='true', style='margin-bottom:40px;margin-top:5px', title='Format must be YYYY-MM-DD', required='')
           .clearfix
             button.cancelbtn(type='button', onclick="document.getElementById('taskform').style.display='none'") Cancel
             button.signupbtn(type='submit') Submit
@@ -218,7 +212,7 @@ html
       // List of tasks
       #grp-task
         h1 Tasks
-        button.descbtn(onclick="document.getElementById('taskform').style.display='block'") Create Task!
+        button.descbtn(onclick="document.getElementById('taskform').style.display='block'") Create Task
         p
           | Below are tasks required to be done and it's due date. Our algorithm method will rank the
           | importance of each task by considering its due date and its priority (from the user). Essentially,
@@ -228,42 +222,21 @@ html
           tr
             th(style='cursor:pointer', onclick='tablesort(1,0)') Rank of importance ♦
             th Task
-            th Who should do it
+            th Task Leader
             th Due date
             th(colspan='2') Action
-          tr
-            td
-              | 5 
-              span(style='color:gold') ★
-            td Prepare financial journal and bank statement to support the league 
-            td Febri, George
-            td  10/5/2018
-            td
-              a(onclick="document.getElementById('edittask').style.display='block'") Edit
-            td
-              a(href='Projectdetails', style='color:red', onclick='return confirmaction()') Delete
-          tr
-            td
-              | 2 
-              span(style='color:gold') ★
-            td Publish the news of our new Football Tournament Grand Opening on social media
-            td Son Heung Min
-            td 27/4/2018
-            td
-              a(onclick="document.getElementById('edittask').style.display='block'") Edit
-            td
-              a(href='Projectdetails', style='color:red', onclick='return confirmaction()') Delete
-          tr
-            td
-              | 4 
-              span(style='color:gold') ★
-            td Submit EOI to the WA Sporting Committee about creating a new Football league
-            td George
-            td 15/5/2018
-            td
-              a(onclick="document.getElementById('edittask').style.display='block'") Edit
-            td
-              a(href='Projectdetails', style='color:red', onclick='return confirmaction()') Delete
+          
+          each task in tasklist
+            tr
+              td #{task.rank}
+              td #{task.name}
+              td #{task.member}
+              td #{task.deadline}
+              td
+                a(onclick="document.getElementById('edittask').style.display='block'") Edit
+              td
+                a(href='/Projectdetails/removetask/'+projdetail._id, style='color:red', onclick='return confirmaction()') Delete
+          
     // Footer area
     footer
       p Copyright 2018 Bego. All Rights Reserved.

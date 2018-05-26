@@ -8,7 +8,7 @@ var Account = new Schema({
       email: {type: String, required: true},
       password: {type: String},
       country: {type: String, required: true},
-      fieldName: [{type: String, required: true}]
+      fieldName: [{type: String, required: true}],
 });
 
 
