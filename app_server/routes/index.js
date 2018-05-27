@@ -54,7 +54,12 @@ router.get('/Joinproject/:projid', ctrlProject.joinproject);
 /* Leave Project */
 router.get('/Leaveproject/:projid', ctrlProject.leaveProject);
 
-/* GET Edit Profile page. */
+/* Edit name. */
+router.post('/Editname', ctrlAcc.editName);
+/* Edit Pref. */
+router.post('/Editpreference', ctrlAcc.editPref);
+
+/* GET Edit profile page. */
 router.get('/Editprofile', ctrlMain.editprofile);
 
 /* GET Edit Preference page. */

@@ -110,5 +110,18 @@ module.exports.editprofile = function(req, res) {
 
 /*GET Edit Preference PAGE*/
 module.exports.editpreference = function(req, res) {
-    res.render('Preference.pug');
+    Account.findOne({_id: req.user.id}, function(err, data){
+        if(err){
+            console.log(err);
+            res.status(500);
+            res.render('error',{
+                message:err.message,
+                error:err
+            });
+        }else{
+            res.render('Preference', {
+                curruser : data
+            });
+        }
+    });
 };

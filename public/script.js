@@ -31,19 +31,6 @@ function confirmlogout() {
     }
 }
 
-
-//Confirms Update page pop-up
-function confirmupdate() {
-    if(confirm("Are you sure you want to update your information/preferences?")){
-        location.href="/Homelogin";
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
-
 //Ensure duedate of task is always after the today date
 function todaydate(indicator){
     var today = new Date();

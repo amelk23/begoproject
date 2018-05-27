@@ -80,13 +80,13 @@ html
         // Edit Name Form
         #edit-name.modal
           span.close(onclick="document.getElementById('edit-name').style.display='none'", title='Close Modal') ×
-          form.modal-content.animate(action='Editprofile')
+          form.modal-content.animate(action='/Editname' method='post')
             .container
               h1 Update Your Name
               hr
               label
                 b Full Name
-              input(type='text', placeholder='Enter First Name', title='Enter your name (1 word and No whitespace)', pattern='^[a-zA-Z]{2,}$', required='')
+              input(type='text', name='fullname' placeholder='Enter First Name', title='Enter your name (1 word and No whitespace)', pattern='^[a-zA-Z]{2,}$', required='')
               .clearfix
                 button.cancelbtn(type='button', onclick="document.getElementById('edit-name').style.display='none'") Cancel
                 button.signupbtn(type='submit') Update

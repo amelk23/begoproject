@@ -35,3 +35,37 @@ module.exports.logout = function(req, res) {
     req.logout();
     res.redirect('/');
 };
+
+/*Edit name*/
+module.exports.editName = function(req, res) {
+    Account.update({_id:req.user.id},{$set : {'name': req.body.fullname}}, function(err,data){
+        if(err){
+            console.log(err);
+            res.status(500);
+            res.render('error',{
+                message:err.message,
+                error:err
+            });
+        }else{
+            console.log(req.user.id, req.body.fullname, ' detail updated');
+            res.redirect('/Editprofile')
+        }
+    });   
+}
+
+/*Edit Pref*/
+module.exports.editPref = function(req, res) {
+    Account.update({_id:req.user.id},{$set : {'fieldName': req.body.newinterest},'country': req.body.newcountry}, function(err,data){
+        if(err){
+            console.log(err);
+            res.status(500);
+            res.render('error',{
+                message:err.message,
+                error:err
+            });
+        }else{
+            console.log(req.user.id, ' detail updated');
+            res.redirect('Preference')
+        }
+    });   
+}
