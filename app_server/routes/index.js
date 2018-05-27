@@ -37,12 +37,22 @@ router.post('/Homelogin', ctrlProject.newPrj);
 /* GET Project details page. */
 router.get('/Projectdetails/:id', ctrlProject.newPrjdetail);
 router.post('/Projectdetails/:id', ctrlProject.newTask);
+router.get('/Projectdetails/:pid/addmember/:mid', ctrlProject.newMember);
+
+/*update task */
+router.post('/Projectdetails/:pid/Updatetask/:tid', ctrlProject.updateTask);
+
+/*delete task */
+router.get('/Projectdetails/:pid/Deletetask/:tid', ctrlProject.delTask);
 
 /* GET Find Project page. */
 router.get('/Findproject', ctrlMain.findproject);
 
 /* Join new Project */
 router.get('/Joinproject/:projid', ctrlProject.joinproject);
+
+/* Leave Project */
+router.get('/Leaveproject/:projid', ctrlProject.leaveProject);
 
 /* GET Edit Profile page. */
 router.get('/Editprofile', ctrlMain.editprofile);

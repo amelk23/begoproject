@@ -79,18 +79,16 @@ html
               th Skills
               th Interest
               th Location
-              th(colspan='2') Action
+              th Action
           
-          each member in -projectmembers
-            tr
-              td #{member.name}
-              td #{member.name}
-              td #{member.name}
-              td #{member.country}
-              td
-                a(style='color:red', href='Projectdetails') Remove
-              td
-                a(style='color:blue', href='Projectdetails') Add
+            each member in newmembers
+              tr
+                td #{member.name}
+                td #{member.name}
+                td #{member.fieldName}
+                td #{member.country}
+                td
+                  a(style='color:blue', href='/Projectdetails/'+projdetail._id+'/addmember/'+member._id) Add
 
     // Post Task form
     #taskform.modal
@@ -169,7 +167,7 @@ html
     // Project Information section
     .project-info
       // Leave group button
-      button.descbtn(style='background-color:red; border-radius: 10px;', onclick='return confirmleave()') Leave
+      button.descbtn(style='background-color:red; border-radius: 10px;', onclick="location.href='/Leaveproject/"+projdetail._id+"'") Leave
       h1 #{projdetail.name}
       hr
       // Project Details
@@ -197,18 +195,14 @@ html
             th(style='cursor:pointer', onclick='tablesort(0,0)') Group Member ♦
             th Skills
             th Role(s)
-          tr
-            td George
-            td Banking and Finance
-            td Accounting and Finance manager 
-          tr
-            td Febri
-            td Project Management
-            td Project Leader 
-          tr
-            td Son Heung Min
-            td Marketing
-            td Brand Ambassador
+            th Action
+          each mate in memberlist
+            tr
+              td #{mate.name}
+              td #{mate.fieldName}
+              td 44
+              td
+                a(style='color:blue', href='Projectdetails') Add role
       // List of tasks
       #grp-task
         h1 Tasks
@@ -228,14 +222,14 @@ html
           
           each task in tasklist
             tr
-              td #{task.rank}
+              td #{task.rank} ★
               td #{task.name}
               td #{task.member}
               td #{task.deadline}
               td
                 a(onclick="document.getElementById('edittask').style.display='block'") Edit
               td
-                a(href='/Projectdetails/removetask/'+projdetail._id, style='color:red', onclick='return confirmaction()') Delete
+                a(href='/Projectdetails/'+projdetail._id+'/Deletetask/'+task._id, style='color:red') Delete
           
     // Footer area
     footer

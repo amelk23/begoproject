@@ -31,10 +31,6 @@ function confirmlogout() {
     }
 }
 
-//Confirms deleting task pop-up
-function confirmaction() {
-    return (confirm("Are you sure you want to delete this task?"));
-}
 
 //Confirms Update page pop-up
 function confirmupdate() {
@@ -47,16 +43,6 @@ function confirmupdate() {
     }
 }
 
-//Confirms Leaving page pop-up
-function confirmleave() {
-    if(confirm("Are you sure you want to leave this group project?")){
-        location.href="/Homelogin";
-        return true;
-    }
-    else{
-        return false;
-    }
-}
 
 //Ensure duedate of task is always after the today date
 function todaydate(indicator){
