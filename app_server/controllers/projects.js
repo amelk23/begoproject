@@ -96,7 +96,7 @@ module.exports.newPrjdetail = function(req, res, next){
                 error:err
             });
         }else{
-            Task.find({'_id': {$in: data.mytasks}}, function(err,taskdata){
+            Task.find({'_id': {$in: data.mytasks}},{}, {sort: {'deadline': 1}}, function(err,taskdata){
                 if(err){
                     console.log(err);
                     res.status(500);
