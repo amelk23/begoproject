@@ -47,7 +47,7 @@ module.exports.homelogin = function(req, res) {
                 error:err
             });
         }else{
-            Project.find({'_id' : {$in :data.myprojects }},function(e,docs){
+            Project.find({'_id' : {$in :data.myprojects }},{}, {sort: {'startdate': 1}},function(e,docs){
                 res.render('Homelogin', {
                     projlist : docs
                 });

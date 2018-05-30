@@ -605,7 +605,7 @@ header #logo, .about .logo img, .teamMember .logo img, .references .logo img, .m
 
 .matchMaking .tabcontent p{
     font-size: 14px;
-    font-style: italic;
+    line-height: 25px;
 }
 
 .matchMaking .tabcontent h6{

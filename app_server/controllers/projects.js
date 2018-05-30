@@ -411,37 +411,6 @@ module.exports.delTask = function(req, res, next){
     });   
 }
 
-/*module.exports.delMember = function(req, res, next){
-
-    Project.findOne({_id: req.params.pid}, function(err, data){
-        
-        if(err){
-            console.log(err);
-            res.status(500);
-            res.render('error',{
-                message:err.message,
-                error:err
-            });
-        }else{
-            Project.update({_id:req.params.pid},{$pull : {mymembers: {$in: req.user.id}}}, function(err,accdata){
-                if(err){
-                    console.log(err);
-                    res.status(500);
-                    res.render('error',{
-                        message:err.message,
-                        error:err
-                    });
-                }else{
-                    console.log(req.params.id, ' removed');
-                    index(req,res,next);
-                    res.redirect('/Projectdetails/'+req.params.pid);
-                }
-            });   
-        }
-    });   
-}*/
-
-
 //Update task
 module.exports.updateTask = function(req, res, next){
     

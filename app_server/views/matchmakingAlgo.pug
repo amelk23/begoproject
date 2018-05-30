@@ -28,6 +28,11 @@ html
           | Member profile cards are visible to administrator
           | member suggestion only if both field interest and location
           | are matched.
+          | The matchmaking algorithm is implemented using MongoDb queries.
+          | Find project page will allow user to know projects created by other users that
+          | has the same field interest and location.
+          | Add member in project details will allow members of the project to add
+          | other users that have the same field interest and location.
       #matchLocation.tabcontent
         h2 Location
         h6
@@ -53,6 +58,8 @@ html
         | Every time a task is defined, task significance range input will be required.
         | User must enter the importance level of the task, ranging from less important ( 1★ ) to very important ( 5★ ).
         | Bego will tailor an algorithm that allow you to sort task from the very important to less important.
+        | By default, task will be sorted based on deadline, starting from the nearest deadline.
+        | If task rank table header button is clicked, task list will be sorted based on priority rank.
     .footer
       p Copyright 2018 Bego. All Rights Reserved. Last updated: 31 May 2018
     script(src='sidenavModal.js')
