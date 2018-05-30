@@ -82,7 +82,7 @@ module.exports.editprofile = function(req, res) {
                 error:err
             });
         }else{
-            res.render('/Editprofile',{
+            res.render('Editprofile',{
                 profiledtl: data
             });
         }
