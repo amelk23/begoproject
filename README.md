@@ -1,3 +1,4 @@
+![BegoLogo](https://imgur.com/k7Uue3e)
 # begoproject
 
 Bego is a web application that allows user to create their own start-up projects and connect them with people with same interest and location. Bego will also allow users to define tasks of a project, invite people with the same field interest, and rank the tasks.
