@@ -199,14 +199,12 @@ html
         table#mymember.list-table
           tr
             th(style='cursor:pointer', onclick='tablesort(0,0)') Group Member ♦
-            th Interest
             th Skills
             th Email
             th Action
           each mate in memberlist
             tr
               td #{mate.name}
-              td #{mate.fieldName}
               td #{mate.skills}
               td #{mate.email}
               td

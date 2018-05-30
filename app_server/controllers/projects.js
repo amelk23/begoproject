@@ -298,7 +298,7 @@ module.exports.delMember = function(req, res, next){
                                 }else{
                                     console.log('projectlist updated');
                                     index(req,res,next);
-                                    res.redirect('/Homelogin');
+                                    res.redirect('/Projectdetails/'+req.params.pid);
                                 }
                             }); 
                     }
