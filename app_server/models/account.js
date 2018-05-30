@@ -9,6 +9,7 @@ var Account = new Schema({
       password: {type: String},
       country: {type: String, required: true},
       fieldName: [{type: String, required: true}],
+      skills: {type: String, required: true}
 });
 
 

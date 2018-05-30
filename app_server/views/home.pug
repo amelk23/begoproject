@@ -44,7 +44,7 @@ html
         button#close2 ×
         img#subLogo2(src='/logo/2.png', alt='logo')
         form(action="/register", method="post")
-          input(type='text', name='name', placeholder='Full Name*', pattern='^[a-zA-Z]{2,}$', required='')
+          input(type='text', name='name', placeholder='Full Name*', pattern='^[a-zA-Z\\s]+', required='')
           input(type='text', name='username', placeholder='Email Address*', pattern='^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$', title='Please enter valid email address', required)
           input#password(type='password', name='password', placeholder='Password*', pattern='(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', title='Password must contain minimum 8 characters, at least 1 number, 1 lowercase, and 1 uppercase letter', required='')
           input#confirmPassword(type='password', name='confirmpassword', placeholder='Confirm Password*')
@@ -343,6 +343,7 @@ html
               option(value='Virtual Reality') Virtual Reality
               option(value='Voice Technology') Voice Technology
               option(value='Wearables') Wearables
+          input(type='text', name='skills', placeholder='Skills', required='')
           button#submitUp SIGN UP >>
     #sidenav
       button#closesidenav ×

@@ -84,7 +84,7 @@ html
             each member in newmembers
               tr
                 td #{member.name}
-                td #{member.name}
+                td #{member.skills}
                 td #{member.fieldName}
                 td #{member.country}
                 td
@@ -103,15 +103,21 @@ html
           label
             b Task
           br
-          textarea(style='outline:none', name='name', rows='3', cols='50', placeholder='Enter description here...', required='')
+          input(type='text', name='name', placeholder='Enter Task Name', required='')
           br
           label
-            b Who Should Do it
-          input(type='text', name='member', placeholder='Enter Name(s) i.e. Michael, James', pattern='^[a-zA-Z]+(,[a-zA-Z]+)*$', title='Only Names separated with comma, NO Whitespaces', required='')
+            b Task Leader
+          div
+            select(style='outline:none', name='member', required='')
+              option(value='', selected='', disabled='') Select Task Leader
+              each mate in memberlist
+                option #{mate.name}
+          br
           label
             b Rank the Priority (5 is the highest)
           div
-            select(style='outline:none', name='rank')
+            select(style='outline:none', name='rank', required='')
+              option(value='', selected='', disabled='') Rank Priority
               option(value='1') 1 ★
               option(value='2') 2 ★
               option(value='3') 3 ★
@@ -140,10 +146,10 @@ html
           label
             b Task
           br
-          textarea(style='outline:none', rows='3', cols='50', placeholder='Enter description here...', required='')
+          input(type='text', name='newtask', placeholder='Enter Task Name', required='')
           br
           label
-            b Who Should Do it
+            b Task Leader
           input(type='text', placeholder='Enter Name(s) i.e. Michael, James', pattern='^[a-zA-Z]+(,[a-zA-Z]+)*$', title='Only Names separated with comma, NO Whitespaces', required='')
           label
             b Rank the Priority (5 is the highest)
@@ -193,16 +199,18 @@ html
         table#mymember.list-table
           tr
             th(style='cursor:pointer', onclick='tablesort(0,0)') Group Member ♦
+            th Interest
             th Skills
-            th Role(s)
+            th Email
             th Action
           each mate in memberlist
             tr
               td #{mate.name}
               td #{mate.fieldName}
-              td 44
+              td #{mate.skills}
+              td #{mate.email}
               td
-                a(style='color:blue', href='Projectdetails') Add role
+                a(href = '/Projectdetails/'+projdetail._id +'/Deletemember/'+ mate._id, style='color:red') Delete
       // List of tasks
       #grp-task
         h1 Tasks
@@ -227,7 +235,7 @@ html
               td #{task.member}
               td #{task.deadline}
               td
-                a(onclick="document.getElementById('edittask').style.display='block'") Edit
+                a(href='/Edittask/'+task._id) Edit
               td
                 a(href='/Projectdetails/'+projdetail._id+'/Deletetask/'+task._id, style='color:red') Delete
           

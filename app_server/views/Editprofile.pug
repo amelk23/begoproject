@@ -53,7 +53,7 @@ html
       a(href='Findproject') Find Projects
       a(href='Editprofile') Edit Profile
       a(href='Preference') Your Preference
-      a(href='home', onclick='confirmlogout()') Logout
+      a(href='/logout', onclick='confirmlogout()') Logout
     // Header section
     header
       a(href='Homelogin')
@@ -76,44 +76,30 @@ html
             span(style='font-size:larger') Name
           br
           span(style='opacity:0.5')
-            small Full Name
-        // Edit Name Form
-        #edit-name.modal
-          span.close(onclick="document.getElementById('edit-name').style.display='none'", title='Close Modal') ×
-          form.modal-content.animate(action='/Editname' method='post')
-            .container
-              h1 Update Your Name
-              hr
-              label
-                b Full Name
-              input(type='text', name='fullname' placeholder='Enter First Name', title='Enter your name (1 word and No whitespace)', pattern='^[a-zA-Z]{2,}$', required='')
-              .clearfix
-                button.cancelbtn(type='button', onclick="document.getElementById('edit-name').style.display='none'") Cancel
-                button.signupbtn(type='submit') Update
-      // Edit Skills
-      .edit-list
-        a.edit-icon(onclick="document.getElementById('edit-skill').style.display='block'")
-          img(src='edit.jpg', alt='Edit icon')
+            small #{profiledtl.name}
         p
           b
             span(style='font-size:larger') Skills
           br
           span(style='opacity:0.5')
-            small Management and Engineering
-        // Edit skill Form
-        #edit-skill.modal
-          span.close(onclick="document.getElementById('edit-skill').style.display='none'", title='Close Modal') ×
-          form.modal-content.animate(action='Editprofile')
+            small #{profiledtl.skills}
+        // Edit Name Form
+        #edit-name.modal
+          span.close(onclick="document.getElementById('edit-name').style.display='none'", title='Close Modal') ×
+          form.modal-content.animate(action='/Editname', method='post')
             .container
-              h1 Update Your Skills
+              h1 Update Your Name and Skills
               hr
+              label
+                b Full Name
+              input(type='text', name='fullname', value= profiledtl.name , pattern='^[a-zA-Z\\s]+', required='')
               label
                 b Skills
               br
-              textarea(style='outline:none', rows='5', cols='90', placeholder='Describe your Skills', required='')
+              input(type='text', name='newskills', value= profiledtl.skills, required='')
               br
               .clearfix
-                button.cancelbtn(type='button', onclick="document.getElementById('edit-skill').style.display='none'") Cancel
+                button.cancelbtn(type='button', onclick="document.getElementById('edit-name').style.display='none'") Cancel
                 button.signupbtn(type='submit') Update
       // Edit E-mail
       .edit-list
@@ -124,7 +110,7 @@ html
             span(style='font-size:larger') E-mail
           br
           span(style='opacity:0.5')
-            small sample.email@goo.com
+            small #{profiledtl.email}
         // Edit E-mail Form
         #edit-email.modal
           span.close(onclick="document.getElementById('edit-email').style.display='none'", title='Close Modal') ×
@@ -133,8 +119,8 @@ html
               h1 Update E-mail Address
               hr
               label
-                b New E-mail
-              input(type='email', placeholder='Enter New E-mail Address', title='sample.email@uwa.com', pattern='^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$', required='')
+                b Email Address
+              input(type='email', value= profiledtl.email, title='sample.email@uwa.com', pattern='^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$', required='')
               .clearfix
                 button.cancelbtn(type='button', onclick="document.getElementById('edit-email').style.display='none'") Cancel
                 button.signupbtn(type='submit') Update
@@ -147,7 +133,7 @@ html
             span(style='font-size:larger') Password
           br
           span(style='opacity:0.5')
-            small Samplepassword
+            small •••••••••
         // Edit Password Form
         #edit-pass.modal
           span.close(onclick="document.getElementById('edit-pass').style.display='none'", title='Close Modal') ×

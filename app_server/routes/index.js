@@ -39,11 +39,17 @@ router.get('/Projectdetails/:id', ctrlProject.newPrjdetail);
 router.post('/Projectdetails/:id', ctrlProject.newTask);
 router.get('/Projectdetails/:pid/addmember/:mid', ctrlProject.newMember);
 
+/*GET Edit Task page*/
+router.get('/Edittask/:tid', ctrlMain.edittask);
+
 /*update task */
-router.post('/Projectdetails/:pid/Updatetask/:tid', ctrlProject.updateTask);
+router.post('/Edittask/:tid', ctrlProject.updateTask);
 
 /*delete task */
 router.get('/Projectdetails/:pid/Deletetask/:tid', ctrlProject.delTask);
+
+/*delete task */
+router.get('/Projectdetails/:pid/Deletemember/:mid', ctrlProject.delMember);
 
 /* GET Find Project page. */
 router.get('/Findproject', ctrlMain.findproject);
@@ -54,19 +60,17 @@ router.get('/Joinproject/:projid', ctrlProject.joinproject);
 /* Leave Project */
 router.get('/Leaveproject/:projid', ctrlProject.leaveProject);
 
-/* Edit name. */
-router.post('/Editname', ctrlAcc.editName);
-/* Edit Pref. */
-router.post('/Editpreference', ctrlAcc.editPref);
-
 /* GET Edit profile page. */
 router.get('/Editprofile', ctrlMain.editprofile);
 
+/* Edit name. */
+router.post('/Editname', ctrlAcc.editName);
+
+/* Edit Pref. */
+router.post('/Editpreference', ctrlAcc.editPref);
+
 /* GET Edit Preference page. */
 router.get('/Preference', ctrlMain.editpreference);
-
-/* POST NEW PROJECT*/
-//router.get('/Homelogin', ctrlProject.projectList);
 
 /* Logout */
 router.get('/logout', ctrlAcc.logout);

@@ -8,7 +8,7 @@ var Account = mongoose.model('Account');
 module.exports.regist = function(req, res){
     Account.register(new Account({
         name: req.body.name, email: req.body.username, country: req.body.country, 
-        fieldName: req.body.fieldName}),req.body.password,
+        fieldName: req.body.fieldName, skills: req.body.skills}),req.body.password,
         function(err,account){
             console.log(err)
             if(err){
@@ -38,7 +38,7 @@ module.exports.logout = function(req, res) {
 
 /*Edit name*/
 module.exports.editName = function(req, res) {
-    Account.update({_id:req.user.id},{$set : {'name': req.body.fullname}}, function(err,data){
+    Account.update({_id:req.user.id}, {name: req.body.fullname, skills: req.body.newskills} , function(err,data){
         if(err){
             console.log(err);
             res.status(500);
@@ -47,7 +47,7 @@ module.exports.editName = function(req, res) {
                 error:err
             });
         }else{
-            console.log(req.user.id, req.body.fullname, ' detail updated');
+            console.log(req.user.id, req.body.fullname, req.body.newskills, ' detail updated');
             res.redirect('/Editprofile')
         }
     });   
@@ -55,7 +55,7 @@ module.exports.editName = function(req, res) {
 
 /*Edit Pref*/
 module.exports.editPref = function(req, res) {
-    Account.update({_id:req.user.id},{$set : {'fieldName': req.body.newinterest},'country': req.body.newcountry}, function(err,data){
+    Account.update({_id:req.user.id},{fieldName: req.body.newinterest, country: req.body.newcountry}, function(err,data){
         if(err){
             console.log(err);
             res.status(500);

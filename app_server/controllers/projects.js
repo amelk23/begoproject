@@ -262,6 +262,52 @@ module.exports.newMember = function(req, res, next){
     );
 }
 
+
+//Delete new member to project
+module.exports.delMember = function(req, res, next){
+    Project.findOne({_id: req.params.pid}, function(err, data){
+        
+        if(err){
+            console.log(err);
+            res.status(500);
+            res.render('error',{
+                message:err.message,
+                error:err
+            });
+        }else{
+            //add new member
+            Account.update({ _id: req.params.mid}, 
+                {$pull: {myprojects: data._id}}, function(err,accdata){
+                    if(err){
+                        console.log(err);
+                        res.status(500);
+                        res.render('error',{
+                            message:err.message,
+                            error:err
+                        });
+                    }else{
+                        Project.update({ _id: req.params.pid}, 
+                            {$pull: {mymembers: req.params.mid}}, function(err,projdata){
+                                if(err){
+                                    console.log(err);
+                                    res.status(500);
+                                    res.render('error',{
+                                        message:err.message,
+                                        error:err
+                                    });
+                                }else{
+                                    console.log('projectlist updated');
+                                    index(req,res,next);
+                                    res.redirect('/Homelogin');
+                                }
+                            }); 
+                    }
+                }); 
+        }
+        }
+    );
+}
+
 //Retrieve
 module.exports.taskList = index;
 
@@ -365,11 +411,42 @@ module.exports.delTask = function(req, res, next){
     });   
 }
 
+/*module.exports.delMember = function(req, res, next){
+
+    Project.findOne({_id: req.params.pid}, function(err, data){
+        
+        if(err){
+            console.log(err);
+            res.status(500);
+            res.render('error',{
+                message:err.message,
+                error:err
+            });
+        }else{
+            Project.update({_id:req.params.pid},{$pull : {mymembers: {$in: req.user.id}}}, function(err,accdata){
+                if(err){
+                    console.log(err);
+                    res.status(500);
+                    res.render('error',{
+                        message:err.message,
+                        error:err
+                    });
+                }else{
+                    console.log(req.params.id, ' removed');
+                    index(req,res,next);
+                    res.redirect('/Projectdetails/'+req.params.pid);
+                }
+            });   
+        }
+    });   
+}*/
+
+
 //Update task
 module.exports.updateTask = function(req, res, next){
     
-    Task.update({_id:req.params.tid},{$push : {name: req.body.name, member: req.body.member, 
-        rank: req.body.rank, deadline: req.body.deadline}}, function(err,data){
+    Task.update({_id:req.params.tid}, {name: req.body.newtask, member: req.body.newleader, 
+        rank: req.body.newrank, deadline: req.body.newdeadline}, function(err,data){
         if(err){
             console.log(err);
             res.status(500);
@@ -380,49 +457,9 @@ module.exports.updateTask = function(req, res, next){
         }else{
             console.log(req.params.tid, ' updated');
             index(req,res,next);
-            res.redirect('/Projectdetails/'+req.params.pid)
+            res.redirect('/Edittask/'+req.params.tid);
         } 
     });   
 }
-/*module.exports.newPrjdetail = function(req, res, next){
 
-    Project.findOne({_id: req.params.id}, function(err, data){
-        
-        if(err){
-            console.log(err);
-            res.status(500);
-            res.render('error',{
-                message:err.message,
-                error:err
-            });
-        }else{
-            Account.find({'_id': {$nin: data.mymembers}, function(e,memberdata){
-                if(err){
-                    console.log(err);
-                    res.status(500);
-                    res.render('error',{
-                        message: err.message,
-                        error: err
-                    });
-                }
-                else{
-                    if(err){
-                        console.log(err);
-                        res.status(500);
-                        res.render('error',{
-                            message: err.message,
-                            error:err
-                        });
-                    }
-                    else{
-                        Task.find({'_id': {$in: data.mytasks}}, function(e,taskdata){
-                            console.log(data,'displayed');
-                            res.render('Projectdetails',{
-                                projdetail: data,
-                                tasklist : taskdata,
-                                projectmembers: memberdata
-                            });
-                        })
-                    }}
-                }})
-            }})};*/
+

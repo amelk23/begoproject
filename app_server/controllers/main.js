@@ -25,6 +25,7 @@ module.exports.team = function(req,res){
     res.render('teamMember.pug');
 }
 
+
 /*GET References Page*/
 module.exports.references = function(req,res){
     res.render('references.pug');
@@ -70,42 +71,22 @@ module.exports.findproject = function(req, res) {
     });
 };
 
-/*GET Project details PAGE*/
-/*module.exports.projectdetails = function(req, res) {
-    Account.findOne({_id: req.user.id}, function(err, data){
+/*GET Edit Profile PAGE*/
+module.exports.editprofile = function(req, res) {
+    Account.findOne({_id: req.user.id}, function (err,data){
         if(err){
             console.log(err);
             res.status(500);
             res.render('error',{
-                message:err.message,
+                message: err.message,
                 error:err
             });
         }else{
-            Project.findOne({_id: req.params.id},  function(err,data){
-                if(err){
-                    console.log(err);
-                    res.status(500);
-                    res.render('error',{
-                        message: err.message,
-                        error: err
-                    });
-                }
-                else{
-                    Task.find({'_id' : {$in :data.mytasks }},function(e,data,taskdata){
-                        res.render('Projectdetails', {
-                            projdetail: data,
-                            tasklist: taskdata
-                        });
-                    });
-                }
+            res.render('Editprofile',{
+                profiledtl: data
             });
         }
-    });
-};*/
-
-/*GET Edit Profile PAGE*/
-module.exports.editprofile = function(req, res) {
-    res.render('Editprofile.pug');
+    })
 };
 
 /*GET Edit Preference PAGE*/
@@ -124,4 +105,23 @@ module.exports.editpreference = function(req, res) {
             });
         }
     });
+};
+
+
+/*GET Edit Task Page*/
+module.exports.edittask = function(req, res) {
+    Task.findOne({_id: req.params.tid}, function (err,data){
+        if(err){
+            console.log(err);
+            res.status(500);
+            res.render('error',{
+                message: err.message,
+                error:err
+            });
+        }else{
+            res.render('EditTask',{
+                taskdata: data
+            });
+        }
+    })
 };
