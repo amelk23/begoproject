@@ -34,7 +34,7 @@ Run the test
 $ npm test
 ```
 ## Deployment
-[Deployed on heroku] (https://powerful-beach-47089.herokuapp.com/)
+* [Deployed on heroku](https://powerful-beach-47089.herokuapp.com/)
 
 ## Built With
 
