@@ -17,6 +17,9 @@ router.get('/aboutus', ctrlMain.about);
 /*GET Matchmaking Algorithm page */
 router.get('/matchmakingAlgo', ctrlMain.matchmaking);
 
+/*GET Design Choice page */
+router.get('/designchoice', ctrlMain.designchoice);
+
 /*GET Team Member page */
 router.get('/teamMember', ctrlMain.team);
 

@@ -20,6 +20,11 @@ module.exports.matchmaking = function(req,res){
     res.render('matchmakingAlgo.pug');
 }
 
+/*GET HOME PAGE*/
+module.exports.designchoice = function(req, res) {
+    res.render('designchoice.pug');
+  };
+
 /*GET Team Member Page*/
 module.exports.team = function(req,res){
     res.render('teamMember.pug');

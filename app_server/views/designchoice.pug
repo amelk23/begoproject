@@ -1,0 +1,157 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Matchmaking Algorithm
+    link(rel='stylesheet', type='text/css', href='bego.css')
+    script(src='lastModified.js')
+    style.
+      .matchMaking .tabcontent h2{
+      color: black;
+      margin-bottom: 0px;
+      letter-spacing: 10px;
+      font-size: 40px;
+      opacity: 0.5;
+      }
+      .matchMaking .tabcontent h3{
+      color: black;
+      margin-bottom: 0px;
+      }
+      .matchMaking .tabcontent h5{
+      font-size: 20px;
+      margin-bottom: 0px;
+      color: black;
+      text-align: left;
+      }
+      .matchMaking .tabcontent p{
+      color: black;
+      font-style: normal;
+      margin-top: 0px;
+      line-height: 20px;
+      font-size: 15px;
+      text-align: justify;
+      }
+      .matchMaking .subpar{
+      background-color: #28B78D;
+      }
+      .matchTab{
+      margin-bottom: 10px;
+      }
+      .matchMaking .tablink{
+      width: 25%;
+      }
+      #testing{
+      background: #243743;
+      background:linear-gradient(to bottom right, #243743, #28B78D);
+      }
+  body.matchMaking(onload='lastModifiedDate()')
+  block content
+    .logo
+      img(src='logo/2.png', alt='logo')
+    button#sidenavBtn
+      img#sidenavImg(src='icon/baricon.png', alt='sidenav logo')
+    #sidenav
+      button#closesidenav ×
+      #navoption
+        a(href='home') Home
+        a(href='aboutus') About Us
+        a(href='matchmakingAlgo') Matchmaking Algorithm
+        a(href='teamMember') Team Member
+        a(href='references') References
+    .matchTab(style='line-height:px;')
+      button#defaultOpen.tablink(onclick="openTab('matchIntro', this, '#243743')") Web Architecture
+      button.tablink(onclick="openTab('matchLocation', this, '#243743')") Design
+      button.tablink(onclick="openTab('matchInterest', this, '#243743')") Difficulties
+      button.tablink(onclick="openTab('testing', this, '#243743')") Testing
+      #matchIntro.tabcontent
+        h2 MVC ARCHITECTURE
+        h3 MODEL - VIEW - CONTROLLER
+        h5 Model
+        p
+          | Model specifies data structures contained in the web application. Bego web application
+          | has three schemas or collections defined using Mongoose in the model directory. These collections are
+          | account, project, and task. Data from this model will be stored in MongoDb and delivered to
+          | views through controllers based on user input.
+        h5 View
+        p
+          | View is responsible for the presentation of the data. This web application uses pug as view engine.
+          | User information, such as their personal details, projects joined, and tasks, will be dynamically
+          | rendered and displayed in a format defined by pug file.
+        h5 Controller
+        p
+          | Controller is resposible for the interaction between the model and views.
+          | Data, received from the database, will be rendered or displayed according to user input through controllers.
+          | This will allow user to view, update, and delete the data stored in the database collections.
+          | Routing represents to how the application endpoints respond to client request. In this project,
+          | we use express as the routing methods. routes/index.js corresponds to http request and call functions from controllers in order to
+          | perform client request. router.get will handle get request and router.post will handle post request.
+    #matchLocation.tabcontent
+      h2 DESIGN
+      h5 Authentication
+      p
+        | Bego web application uses passport-local-mongoose to handle user authorization.
+        | To register, user needs to enter a unique email address, password, and other personal details.
+        | Client side validation is implemented using regular expression in html pattern. If all user input are validated and
+        | submit button is clicked, user data will be stored in Account collection and password will
+        | be salted and hashed for data security. Thereafter, user can login using their registered
+        | email and password. After a success login, user data will be displayed through controller in
+        | the form of view templates specified.
+      h5 Web Structure
+      p
+        | Bego user will be directed to home page that contains
+        | list of user projects after login. View button in each project will direct user to project
+        | description, allowing user to view, edit, and add tasks and members. Find project page will
+        | allow user to find projects that are match to their field interest and location. Matchmaking algorithm
+        | is implemented through this page. There are two ways user can join a project, one is by clicking
+        | join button under find project page and user can join the project through being added by other members whose
+        | already joined the project. Edit profile will allow user to edit name and skills. Your preference
+        | will allow user to edit their preference. If user changes their preference or location, project list in find projects
+        | will be different, however joined projects will stay in the home page list regardless field interest or location alteration.
+      h5 Database Design
+      p
+        | Bego web application uses mLab as MongoDb database server. There are three collections defined, these are
+        | Account, Project, and Tasks. Account collection will hold user personal detail data, such as name,
+        | email, salted and hashed password, location, field interest, skills, and a reference array to Project collection. Each account
+        | can have many projects. Project collection will maintain project data, consisting of name, field, location,
+        | description, start date, reference array to Task collection, and reference array to Account collection. Each
+        | project can have many tasks and members. Task collection will store task name, member, rank, and deadline.
+        | Task and members in a project can be dynamically added and deleted. db.js will set up mongoose conections, allowing
+        | interaction between user input and database collections.
+    #matchInterest.tabcontent
+      h2 DIFFICULTIES
+      h5 Authentication
+      p
+        | One of the challenge in passport-local and express authentication is that we use email as username. Bego team
+        | did a trial and error to solve the problem. Second, Bego team tried to add edit email and password functionalities,
+        | however due to limited time frame, we were not able to solve this problem. As user changes their email (username) and password, the salt and hash
+        | data stored in the database will also be altered, ruining mymembers field (reference to Account collection) stored in
+        | Project collection.
+      h5 Database Queries
+      p
+        | Bego team had a lot of difficulties in dealing with database queries. Database queries are
+        | indeed the most integral part for this web development project. Almost all functionalities,
+        | such as add, edit, delete, and matchmaking algorithm, embedded in this web application are maintained through MongoDb queries.
+        | Bego team managed to overcome this problem by reading through MongoDb documentations.
+    #testing.tabcontent
+      h2 TESTING
+      h5 Ongoing Unit Testing
+      p
+        | Everytime a bego member finishes a functionality, the other team member performed testing.
+        | If a bug is found, Bego team will try to fix the problem before going on to the next step.
+        | For this stage, Bego team used GitHub as a platform to collaborate, allowing ongoing testing to be flexible.
+      h5 Unit Testing
+      p
+        | For unit testing, Bego employed mocha test framework, requiring should, request, chai, and expect libraries.
+        | We created testing scenario for account, project, task, and dynamic page routing. Personalized data corresponding to
+        | each schema were created, then Mocha will ensure that data entered are correctly stored in the database.
+      h5 User Testing
+      p
+        | Bego employed Selenium IDE as a tool to test end user environment. Bego team uses Selenium IDE
+        | in Chrome extension. Bego web elements consisting of buttons, login and logout feature,
+        | dynamic add, edit, and delete functionalities for projects, tasks, and members are expected to
+        | function properly.
+    .footer
+      p Copyright 2018 Bego. All Rights Reserved.
+      p#lastMod
+    script(src='sidenavModal.js')
+    script(src='openTab.js')
