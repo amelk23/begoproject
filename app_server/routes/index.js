@@ -29,7 +29,7 @@ router.post('/login', ctrlAcc.login);
 /*Register to account*/
 router.post('/register', ctrlAcc.regist);
 
-/* GET Home Login page. */
+/* GET Home h page. */
 router.get('/Homelogin', ctrlMain.homelogin);
 router.post('/Homelogin', ctrlProject.newPrj);
 

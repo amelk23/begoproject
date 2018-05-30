@@ -43,7 +43,7 @@ module.exports.homelogin = function(req, res) {
             });
         }else{
             Project.find({'_id' : {$in :data.myprojects }},function(e,docs){
-                res.render('homelogin', {
+                res.render('/Homelogin', {
                     projlist : docs
                 });
             });
@@ -63,7 +63,7 @@ module.exports.findproject = function(req, res) {
             });
         }else{
             Project.find({'location' : {$eq :data.country }, '_id':{$nin :data.myprojects}, 'field':{$in: data.fieldName}},function(e,docs){
-                res.render('Findproject', {
+                res.render('/Findproject', {
                     newprojects : docs
                 });
             });
@@ -82,7 +82,7 @@ module.exports.editprofile = function(req, res) {
                 error:err
             });
         }else{
-            res.render('Editprofile',{
+            res.render('/Editprofile',{
                 profiledtl: data
             });
         }
@@ -100,7 +100,7 @@ module.exports.editpreference = function(req, res) {
                 error:err
             });
         }else{
-            res.render('Preference', {
+            res.render('/Preference', {
                 curruser : data
             });
         }
@@ -119,7 +119,7 @@ module.exports.edittask = function(req, res) {
                 error:err
             });
         }else{
-            res.render('EditTask',{
+            res.render('/EditTask',{
                 taskdata: data
             });
         }

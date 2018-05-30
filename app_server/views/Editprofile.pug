@@ -101,64 +101,7 @@ html
               .clearfix
                 button.cancelbtn(type='button', onclick="document.getElementById('edit-name').style.display='none'") Cancel
                 button.signupbtn(type='submit') Update
-      // Edit E-mail
-      .edit-list
-        a.edit-icon(onclick="document.getElementById('edit-email').style.display='block'")
-          img(src='edit.jpg', alt='Edit icon')
-        p
-          b
-            span(style='font-size:larger') E-mail
-          br
-          span(style='opacity:0.5')
-            small #{profiledtl.email}
-        // Edit E-mail Form
-        #edit-email.modal
-          span.close(onclick="document.getElementById('edit-email').style.display='none'", title='Close Modal') ×
-          form.modal-content.animate(action='Editprofile')
-            .container
-              h1 Update E-mail Address
-              hr
-              label
-                b Email Address
-              input(type='email', value= profiledtl.email, title='sample.email@uwa.com', pattern='^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$', required='')
-              .clearfix
-                button.cancelbtn(type='button', onclick="document.getElementById('edit-email').style.display='none'") Cancel
-                button.signupbtn(type='submit') Update
-      // Edit Password
-      .edit-list
-        a.edit-icon(onclick="document.getElementById('edit-pass').style.display='block'")
-          img(src='edit.jpg', alt='Edit icon')
-        p
-          b
-            span(style='font-size:larger') Password
-          br
-          span(style='opacity:0.5')
-            small •••••••••
-        // Edit Password Form
-        #edit-pass.modal
-          span.close(onclick="document.getElementById('edit-pass').style.display='none'", title='Close Modal') ×
-          form.modal-content.animate(name='editpass', action='Editprofile', onsubmit='return checkpassword(document.editpass.password1.value, document.editpass.password2.value)')
-            .container
-              h1 Update Password
-              p You will receive e-mail to confirm your password change.
-              hr
-              label
-                b E-mail
-              input(type='email', placeholder='Enter E-mail', title='sample.email@uwa.com', pattern='^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$', required='')
-              label
-                b Old Password
-              input(type='password', placeholder='Enter Old Password', required='')
-              label
-                b New Password
-                br
-              input(type='password', name='password1', title='Contain 8 or more characters with at least 1 number, \
-              one uppercase and 1 lowercase', pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', placeholder='Enter New Password', required='')
-              label
-                b Repeat New Password
-              input(type='password', name='password2', placeholder='Repeat New Password', required='')
-              .clearfix
-                button.cancelbtn(type='button', onclick="document.getElementById('edit-pass').style.display='none'") Cancel
-                button.signupbtn(type='submit') Update
+
     // Footer area
     footer
       p Copyright 2018 Bego. All Rights Reserved.
