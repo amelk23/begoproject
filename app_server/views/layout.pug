@@ -1,7 +1,121 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='icon', href='logo/2.png')
+    // Importing external layout from layout.css file
+    link(rel='stylesheet', type='text/css', href='/layout.css')
+    // New project Form layout
+    link(rel='stylesheet', type='text/css', href='/form-layout.css')
+    link(rel='stylesheet', type='text/css', href='/bego.css')
+    
+    // Import Javascript codes
+    script(src='/script.js')
+    script(src='/lastModified.js')
+    script(src='/validateConfirmPassword.js')
+    script(src='/sModal.js')
+    script(src='/sidenavModal.js')
+
+    style.
+      /*below are used in homelogin page*/
+      .project-list{
+      background-color: rgba(36, 55, 67, 0.2);
+      background-size:100% 100%;
+      border-radius: 10px;
+      width: 80%;
+      border: none;
+      padding: 15px;
+      margin:auto;
+      margin-top:100px;
+      margin-bottom:40px;
+      padding: 40px;
+      }
+      .view {
+      display: block;
+      width: 100%;
+      line-height: 2em;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      background-color:#243743;
+      color:white;
+      font-size: 15px;
+      padding: 7px 17px;
+      border-radius: 10px;
+      }
+      .view:hover {
+      opacity:0.8;
+      }  
+      /*below are used in editprofile page*/
+      .edit{
+      background-color: rgba(36, 55, 67, 0.2);
+      background-size:cover;
+      border-radius: 10px;
+      width: 80%;
+      border: none;
+      padding: 40px;
+      margin:auto;
+      margin-top:100px;
+      margin-bottom:40px;
+      }
+      .edit-list{
+      outline: none;
+      margin:auto;
+      background-color: rgba(255,255,255,0.5);
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding:10px;
+      padding-left: 40px;
+      }
+      .edit-icon{
+      position:static;
+      margin:20px;
+      float:right;
+      cursor:pointer;
+      }
+      .edit-icon:hover{
+      opacity:0.5;
+      }
+      .project-info{
+      background-color: rgba(36, 55, 67, 0.2);
+      border-radius: 10px;
+      background-size:100% 100%;
+      width: 80%;
+      border: none;
+      padding: 40px;
+      margin:auto;
+      margin-top:100px;
+      margin-bottom:40px;
+      }
+      .descbtn{
+      width:140px;
+      float:right;
+      margin:20px;
+      background-color:#243743;
+      border-radius: 10px;
+      }
+      .descbtn:hover{
+      background-color: #28B78D;
+      }
+      .project-info a{
+      cursor:pointer;
+      color:blue;
+      text-decoration:underline;
+      }
+      .project-info a:hover{
+      opacity:0.6;
+      text-decoration:underline;
+      }
+  
+  #mySidenav.sidenav
+    a.closebtn(href='#', onclick='closeNav()') ×
+    a(href='/Homelogin') Home
+    a(href='/Findproject') Find Projects
+    a(href='/Editprofile') Edit Profile
+    a(href='/Preference') Your Preference
+    a(href='/logout') Logout
+  
+  
+  block content
+  

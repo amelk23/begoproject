@@ -1,108 +1,54 @@
-doctype html
-html
+extends layout
+block content
   head
     title BEGO - Edit Profile
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='icon', href='logo/2.png')
-    // Importing external layout from layout.css file
-    link(rel='stylesheet', type='text/css', href='layout.css')
-    // New project Form layout
-    link(rel='stylesheet', type='text/css', href='form-layout.css')
-    link(rel='stylesheet', type='text/css', href='bego.css')
-    // Import Javascript codes
-    script(src='script.js')
-    script(src='lastModified.js')
-    // CSS style for div edit and its' button i.e. edit icon
-    style.
-      .edit{
-      background-color: rgba(36, 55, 67, 0.2);
-      background-size:cover;
-      border-radius: 10px;
-      width: 80%;
-      border: none;
-      padding: 40px;
-      margin:auto;
-      margin-top:100px;
-      margin-bottom:40px;
-      }
-      .edit-list{
-      outline: none;
-      margin:auto;
-      background-color: rgba(255,255,255,0.5);
-      border-radius: 10px;
-      margin-bottom: 20px;
-      padding:10px;
-      padding-left: 40px;
-      }
-      .edit-icon{
-      position:static;
-      margin:20px;
-      float:right;
-      cursor:pointer;
-      }
-      .edit-icon:hover{
-      opacity:0.5;
-      }
-  body(onload='lastModifiedDate()')
-  block content
-    // Side navigation
-    #mySidenav.sidenav
-      a.closebtn(href='#', onclick='closeNav()') ×
-      a(href='Homelogin') Home
-      a(href='Findproject') Find Projects
-      a(href='Editprofile') Edit Profile
-      a(href='Preference') Your Preference
-      a(href='/logout', onclick='confirmlogout()') Logout
-    // Header section
-    header
-      a(href='Homelogin')
-        img#logo(src='logo/2.png', alt='Bego Logo')
-      nav
-        a.normalbtn(style='width:70px', onclick='openNav()') ☰ 
-    // Edit section
-    .edit
-      h1 Edit Profile
+  header
+    a(href='Homelogin')
+      img#logo(src='logo/2.png', alt='Bego Logo')
+    nav
+      a.normalbtn(style='width:70px', onclick='openNav()') ☰ 
+  // Edit section
+  .edit
+    h1 Edit Profile
+    p
+      | Ensure that you have the most up to date details so that you can enjoy
+      | the most out of BEGO application.
+    hr
+    // Edit Name
+    .edit-list
+      a.edit-icon(onclick="document.getElementById('edit-name').style.display='block'")
+        img(src='edit.jpg', alt='Edit icon')
       p
-        | Ensure that you have the most up to date details so that you can enjoy
-        | the most out of BEGO application.
-      hr
-      // Edit Name
-      .edit-list
-        a.edit-icon(onclick="document.getElementById('edit-name').style.display='block'")
-          img(src='edit.jpg', alt='Edit icon')
-        p
-          b
-            span(style='font-size:larger') Name
-          br
-          span(style='opacity:0.5')
-            small #{profiledtl.name}
-        p
-          b
-            span(style='font-size:larger') Skills
-          br
-          span(style='opacity:0.5')
-            small #{profiledtl.skills}
-        // Edit Name Form
-        #edit-name.modal
-          span.close(onclick="document.getElementById('edit-name').style.display='none'", title='Close Modal') ×
-          form.modal-content.animate(action='/Editname', method='post')
-            .container
-              h1 Update Your Name and Skills
-              hr
-              label
-                b Full Name
-              input(type='text', name='fullname', value= profiledtl.name , pattern='^[a-zA-Z\\s]+', required='')
-              label
-                b Skills
-              br
-              input(type='text', name='newskills', value= profiledtl.skills, required='')
-              br
-              .clearfix
-                button.cancelbtn(type='button', onclick="document.getElementById('edit-name').style.display='none'") Cancel
-                button.signupbtn(type='submit') Update
+        b
+          span(style='font-size:larger') Name
+        br
+        span(style='opacity:0.5')
+          small #{profiledtl.name}
+      p
+        b
+          span(style='font-size:larger') Skills
+        br
+        span(style='opacity:0.5')
+          small #{profiledtl.skills}
+      // Edit Name Form
+      #edit-name.modal
+        span.close(onclick="document.getElementById('edit-name').style.display='none'", title='Close Modal') ×
+        form.modal-content.animate(action='/Editname', method='post')
+          .container
+            h1 Update Your Name and Skills
+            hr
+            label
+              b Full Name
+            input(type='text', name='fullname', value= profiledtl.name , pattern='^[a-zA-Z\\s]+', required='')
+            label
+              b Skills
+            br
+            input(type='text', name='newskills', value= profiledtl.skills, required='')
+            br
+            .clearfix
+              button.cancelbtn(type='button', onclick="document.getElementById('edit-name').style.display='none'") Cancel
+              button.signupbtn(type='submit') Update
 
-    // Footer area
-    footer
-      p Copyright 2018 Bego. All Rights Reserved.
-      p#lastMod
+  // Footer area
+  footer
+    p Copyright 2018 Bego. All Rights Reserved. Last updated: 31 May 2018

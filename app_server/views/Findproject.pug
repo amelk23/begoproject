@@ -1,90 +1,42 @@
-doctype html
-html
+extends layout
+
+
+block content
   head
     title BEGO - Find Projects
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='icon', href='logo/2.png')
-    // Importing external layout from layout.css file
-    link(rel='stylesheet', type='text/css', href='layout.css')
-    // New project Form layout
-    link(rel='stylesheet', type='text/css', href='form-layout.css')
-    link(rel='stylesheet', type='text/css', href='bego.css')
-    // Import Javascript codes
-    script(src='script.js')
-    script(src='lastModified.js')
-    // CSS style for div project-list and its' button i.e. Join button
-    style.
-      .project-list{
-      background-color: rgba(36, 55, 67, 0.2);
-      background-size:100% 100%;
-      border-radius: 10px;
-      width: 80%;
-      border: none;
-      padding: 40px;
-      margin:auto;
-      margin-top:100px;
-      margin-bottom:40px;
-      }
-      .join {
-      display: block;
-      width: 100%;
-      line-height: 2em;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 10px;
-      background-color:#243743;
-      color:white;
-      font-size: 15px;
-      padding: 7px 17px;
-      }
-      .join:hover {
-      opacity:0.8;
-      }
-  body(onload='lastModifiedDate()')
-  block content
-    // Side navigation
-    #mySidenav.sidenav
-      a.closebtn(href='#', onclick='closeNav()') ×
-      a(href='Homelogin') Home
-      a(href='Findproject') Find Projects
-      a(href='Editprofile') Edit Profile
-      a(href='Preference') Your Preference
-      a(href='/logout') Logout
     // Header section
-    header
-      a(href='Homelogin')
-        img#logo(src='logo/2.png', alt='Bego Logo')
-      nav
-        a.normalbtn(style='width:70px', onclick='openNav()') ☰ 
-    // Project list table
-    .project-list
-      h1 Find your new adventure
-      p
-        | This is a list of projects that might interest you. We have come up with several projects using
-        | our matchmaking method to find you new projects to conquer!
-      hr
-      // Search Project menu
-      input#search1(type='text', onkeyup='searchmenu(1)', style='border:1px solid seagreen;background-color:white;', placeholder=' Search Project...', title='Type in Project Name')
-      table#findproject.list-table
+  header
+    a(href='Homelogin')
+      img#logo(src='logo/2.png', alt='Bego Logo')
+    nav
+      a.normalbtn(style='width:70px', onclick='openNav()') ☰ 
+  // Project list table
+  .project-list
+    h1 Find your new adventure
+    p
+      | This is a list of projects that might interest you. We have come up with several projects using
+      | our matchmaking method to find you new projects to conquer!
+    hr
+    // Search Project menu
+    input#search1(type='text', onkeyup='searchmenu(1)', style='border:1px solid seagreen;background-color:white;', placeholder=' Search Project...', title='Type in Project Name')
+    table#findproject.list-table
+      tr
+        th Project Name
+        th Project Field
+        th Location
+        th Description
+        th Start Date
+        th Action
+      each project in newprojects
         tr
-          th Project Name
-          th Project Field
-          th Location
-          th Description
-          th Start Date
-          th Action
-        each project in newprojects
-          tr
-            td #{project.name}
-            td #{project.field}
-            td #{project.location}
-            td #{project.description}
-            td #{project.startdate}
-            td
-              a.join(href= '/Joinproject/'+project._id) Join
-    
-    // Footer area
-    footer
-      p Copyright 2018 Bego. All Rights Reserved.
-      p#lastMod
+          td #{project.name}
+          td #{project.field}
+          td #{project.location}
+          td #{project.description}
+          td #{project.startdate}
+          td
+            a.join(href= '/Joinproject/'+project._id) Join
+  
+  // Footer area
+  footer
+    p Copyright 2018 Bego. All Rights Reserved. Last updated: 31 May 2018
