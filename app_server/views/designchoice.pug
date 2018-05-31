@@ -120,11 +120,15 @@ html
         | interaction between user input and database collections.
     #matchInterest.tabcontent
       h2 DIFFICULTIES
+      h5 Web Page Integration
+      p
+        | When Bego team chose which page will be used for final project and combine them into one file, there were some 
+        | class name and id name conflicts. Different web structure between members were also a challenge.
       h5 Authentication
       p
         | One of the challenge in passport-local and express authentication is that we use email as username. Bego team
         | did a trial and error to solve the problem. Second, Bego team tried to add edit email and password functionalities,
-        | however due to limited time frame, we were not able to solve this problem. As user changes their email (username) and password, the salt and hash
+        | however due to limited time frame, we were not able to solve this problem. As user change their email (username) and password, the salt and hash
         | data stored in the database will also be altered, ruining mymembers field (reference to Account collection) stored in
         | Project collection.
       h5 Database Queries

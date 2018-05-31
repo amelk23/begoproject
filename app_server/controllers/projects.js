@@ -426,7 +426,7 @@ module.exports.updateTask = function(req, res, next){
         }else{
             console.log(req.params.tid, ' updated');
             index(req,res,next);
-            res.redirect('/Edittask/'+req.params.tid);
+            res.redirect('/Projectdetails/'+req.params.pid);
         } 
     });   
 }

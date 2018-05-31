@@ -54,11 +54,16 @@ block content
             input(type='text', value= taskdata.name , name='newtask', required='')
             label
               b Task Leader
-            input(type='text', value = taskdata.member , name='newleader', required='')
+            div
+              select(style='outline:none', name='newleader', required='')
+                option(value='', selected='', disabled='') Select Task Leader
+                each mate in memberlist
+                  option #{mate.name}
+            br
             label
               b Rank
             div
-              select(style='outline:none', name='newrank')
+              select(style='outline:none', name='newrank', required='')
                 option(value='', selected='', disabled='') Task Rank
                 option(value='1') 1 ★
                 option(value='2') 2 ★
