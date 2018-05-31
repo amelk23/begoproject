@@ -413,7 +413,6 @@ module.exports.delTask = function(req, res, next){
 
 //Update task
 module.exports.updateTask = function(req, res, next){
-    
     Task.update({_id:req.params.tid}, {name: req.body.newtask, member: req.body.newleader, 
         rank: req.body.newrank, deadline: req.body.newdeadline}, function(err,data){
         if(err){
@@ -424,11 +423,22 @@ module.exports.updateTask = function(req, res, next){
                 error:err
             });
         }else{
-            console.log(req.params.tid, ' updated');
-            index(req,res,next);
-            res.redirect('/Projectdetails/'+req.params.pid);
-        } 
-    });   
+            Project.findOne({_id: req.params.pid}, function(err, projdata){
+        
+                if(err){
+                    console.log(err);
+                    res.status(500);
+                    res.render('error',{
+                        message:err.message,
+                        error:err
+                    });
+                }else{
+                    console.log(req.params.tid, ' updated');
+                    index(req,res,next);
+                    res.redirect('/Edittask/'+projdata._id+'/'+req.params.tid);
+                }
+        })
+    }});   
 }
 
 

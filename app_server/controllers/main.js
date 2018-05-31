@@ -165,7 +165,8 @@ module.exports.edittask = function(req, res){
                         }else{
                             res.render('EditTask',{
                                 taskdata: tdata,
-                                memberlist: memberdata
+                                memberlist: memberdata,
+                                projdetail: data
                             });
                         }
                     })

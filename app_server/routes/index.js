@@ -46,7 +46,7 @@ router.get('/Projectdetails/:pid/addmember/:mid', ctrlProject.newMember);
 router.get('/Edittask/:pid/:tid', ctrlMain.edittask);
 
 /*update task */
-router.post('/Edittask/:tid', ctrlProject.updateTask);
+router.post('/Edittask/:pid/:tid', ctrlProject.updateTask);
 
 /*delete task */
 router.get('/Projectdetails/:pid/Deletetask/:tid', ctrlProject.delTask);

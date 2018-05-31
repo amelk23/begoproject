@@ -45,7 +45,7 @@ block content
       // Edit Task Form
       #edit-name.modal
         span.close(onclick="document.getElementById('edit-name').style.display='none'", title='Close Modal') ×
-        form.modal-content.animate(action=('/EditTask/'+taskdata._id), method='post', onsubmit='return todaydate(0)')
+        form.modal-content.animate(action=('/EditTask/'+projdetail._id+'/'+taskdata._id), method='post', onsubmit='return todaydate(0)')
           .container
             h1 Edit Task
             hr
