@@ -114,24 +114,6 @@ module.exports.editpreference = function(req, res) {
 
 
 /*GET Edit Task Page*/
-/*module.exports.edittask = function(req, res) {
-    Task.findOne({_id: req.params.tid}, function (err,data){
-        if(err){
-            console.log(err);
-            res.status(500);
-            res.render('error',{
-                message: err.message,
-                error:err
-            });
-        }else{
-            res.render('EditTask',{
-                taskdata: data
-            });
-        }
-    })
-};*/
-
-/*GET Edit Task Page*/
 module.exports.edittask = function(req, res){
     Project.findOne({_id: req.params.pid}, function(err, data){
         

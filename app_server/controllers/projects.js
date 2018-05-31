@@ -6,6 +6,7 @@ require("../models/account")
 var Project = mongoose.model('Project');
 var Account = mongoose.model('Account');
 var Task = mongoose.model('Task');
+var JSAlert = require("js-alert");
 
 
 
@@ -36,7 +37,8 @@ function index(req, res, next){
 module.exports.newPrj = function(req, res, next){
     //Add new project to project database
     var newProject = new Project({
-        name: req.body.name, 
+        name: req.body.name,
+        admin: req.user.id,
         field: req.body.field,
         location: req.body.location,
         description: req.body.description,
@@ -265,7 +267,7 @@ module.exports.newMember = function(req, res, next){
 
 //Delete new member to project
 module.exports.delMember = function(req, res, next){
-    Project.findOne({_id: req.params.pid}, function(err, data){
+    Project.findOne({_id: req.params.pid,'admin': {$eq: req.user.id}}, function(err, data){
         
         if(err){
             console.log(err);
@@ -274,17 +276,16 @@ module.exports.delMember = function(req, res, next){
                 message:err.message,
                 error:err
             });
-        }else{
-            //add new member
+        }
+        else if(Project.findOne({_id: req.params.pid, 'admin': {$ne: req.userid}})) {
+            JSAlert.alert("Unauthorized");
+            res.redirect('/Projectdetails/'+req.params.pid);
+        }
+        else{
             Account.update({ _id: req.params.mid}, 
                 {$pull: {myprojects: data._id}}, function(err,accdata){
                     if(err){
-                        console.log(err);
-                        res.status(500);
-                        res.render('error',{
-                            message:err.message,
-                            error:err
-                        });
+                        res.redirect('/Projectdetails/'+req.params.pid);
                     }else{
                         Project.update({ _id: req.params.pid}, 
                             {$pull: {mymembers: req.params.mid}}, function(err,projdata){
@@ -299,11 +300,12 @@ module.exports.delMember = function(req, res, next){
                                     console.log('projectlist updated');
                                     index(req,res,next);
                                     res.redirect('/Projectdetails/'+req.params.pid);
-                                }
-                            }); 
+                        }
+                    }); 
                     }
                 }); 
-        }
+
+            }
         }
     );
 }

@@ -5,6 +5,7 @@ var projectSchema = new mongoose.Schema(
     {
         mytasks:[[mongoose.Schema.Types.ObjectId]],
         mymembers: [[mongoose.Schema.Types.ObjectId]],
+        admin: {type :mongoose.Schema.ObjectId, ref: 'Account'},
         name:{type :String, required: true},
         field: {type :String, required: true},
         location: {type: String, required: true},
