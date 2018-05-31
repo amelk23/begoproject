@@ -6,6 +6,7 @@ require("../models/account")
 var Project = mongoose.model('Project');
 var Account = mongoose.model('Account');
 var Task = mongoose.model('Task');
+
 var JSAlert = require("js-alert");
 
 
@@ -267,7 +268,7 @@ module.exports.newMember = function(req, res, next){
 
 //Delete new member to project
 module.exports.delMember = function(req, res, next){
-    Project.findOne({_id: req.params.pid,'admin': {$eq: req.user.id}}, function(err, data){
+    Project.findOne({_id: req.params.pid}, function(err, data){
         
         if(err){
             console.log(err);
@@ -277,15 +278,20 @@ module.exports.delMember = function(req, res, next){
                 error:err
             });
         }
-        else if(Project.findOne({_id: req.params.pid, 'admin': {$ne: req.userid}})) {
-            JSAlert.alert("Unauthorized");
+        else if(!(data.admin.equals(req.user.id))){
+            JSAlert.alert('Unauthorized');
             res.redirect('/Projectdetails/'+req.params.pid);
         }
         else{
             Account.update({ _id: req.params.mid}, 
                 {$pull: {myprojects: data._id}}, function(err,accdata){
                     if(err){
-                        res.redirect('/Projectdetails/'+req.params.pid);
+                        console.log(err);
+                        res.status(500);
+                        res.render('error',{
+                            message:err.message,
+                            error:err
+                        });
                     }else{
                         Project.update({ _id: req.params.pid}, 
                             {$pull: {mymembers: req.params.mid}}, function(err,projdata){
