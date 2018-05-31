@@ -137,6 +137,12 @@ html
         | indeed the most integral part for this web development project. Almost all functionalities,
         | such as add, edit, delete, and matchmaking algorithm, embedded in this web application are maintained through MongoDb queries.
         | Bego team managed to overcome this problem by reading through MongoDb documentations.
+        | Another difficulty was encountered when dealing with nested database design. Database queries were complex
+        | and highly nested, in some cases, all Project, Task, and Account id's were required.
+      h5 Express Alert Popup
+      p
+        | Bego team tried to built an alert popup in express to let non-admin project user know that they are unauthorized to delete members.
+        | We tried to use JSAlert npm library, however, this did not work well with express. Alert was shown in console log, not user window.
     #testing.tabcontent
       h2 TESTING
       h5 Ongoing Unit Testing
